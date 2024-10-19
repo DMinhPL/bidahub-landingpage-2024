@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button-base-style {
+      @apply inline-flex items-center justify-center transition duration-300 ease-in-out; 
+  }
+
+  .input-base-style {
+      @apply border border-gainsboro rounded-lg text-base px-4 py-3 text-gunmetal h-12 focus:outline-none font-medium placeholder:text-roman-silver w-full transition duration-300 ease-in-out; 
+  }
+
+  .base-transition {
+      @apply transition duration-300 ease-in-out;
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1F2128;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #1F2128;
+  }
+}
+
+body {
+  background: var(--background);
+  @apply text-raisin-black;
+  background-image: url("../assets/images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
