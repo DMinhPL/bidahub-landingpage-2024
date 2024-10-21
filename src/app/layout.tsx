@@ -1,8 +1,7 @@
-import { svnPoppins } from "@/utils/fonts";
+import { mySvnDays, svnPoppins } from "@/utils/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,10 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${svnPoppins.className} antialiased`}
+        className={`${svnPoppins.className} ${mySvnDays.variable} antialiased`}
       >
         <Header />
-        <main className="mt-[175px]">
+        <main className="mt-[140px] lg:mt-[175px]">
           {children}
         </main>
       </body>

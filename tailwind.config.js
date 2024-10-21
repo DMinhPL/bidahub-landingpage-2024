@@ -22,6 +22,7 @@ module.exports = {
       },
       fontFamily: {
         poppins: ['SVN-Poppins', 'sans-serif'],
+        svnDay: ["var(--svn-days)"],
       },
       container: {
         screens: {

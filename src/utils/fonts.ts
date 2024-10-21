@@ -1,5 +1,11 @@
 import localFont from "next/font/local";
 
+export const mySvnDays = localFont({
+  src: '../fonts/SVN-Days.otf',
+  variable: '--svn-days',
+});
+
+
 export const svnPoppins = localFont({
   src: [
     {
