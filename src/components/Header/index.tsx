@@ -17,7 +17,7 @@ const headerMenu = [
   },
   {
     title: 'Giới thiệu',
-    target: '#about',
+    target: '#introduction',
     id: 2,
   },
   {
@@ -38,7 +38,6 @@ const headerMenu = [
 ];
 
 const Header: React.FC = () => {
-  const { width } = useWindowDimensions();
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
@@ -89,80 +88,77 @@ const Header: React.FC = () => {
         </div>
       </div>
       {/* Side menu Mobile  */}
-      {width <= 1024 && (
-        <div
-          className={`side-menu px-5 py-7 fixed top-0 left-0 w-full h-full z-10 bg-white transform transition-transform duration-300 ease-in-out ${
-            openMenu ? 'translate-x-0' : '-translate-x-full'
+      <div
+        className={`side-menu px-5 py-7 fixed top-0 left-0 w-full h-full z-10 bg-white transform transition-transform duration-300 ease-in-out ${openMenu ? 'translate-x-0' : '-translate-x-full'
           } xl:hidden`}
-        >
-          <div className='bg absolute z-[1] top-0 left-0 w-full h-full'>
+      >
+        <div className='bg absolute z-[1] top-0 left-0 w-full h-full'>
+          <Image
+            src={bgMenuMobile}
+            alt='Picture of the author'
+            width={375}
+            height={667}
+            className='w-full h-full object-cover'
+            placeholder='blur' // Optional blur-up while loading
+          />
+        </div>
+        <div className='body relative z-[2] overflow-auto h-full'>
+          <div className='flex items-center justify-between'>
             <Image
-              src={bgMenuMobile}
+              src={whiteLogoImg}
               alt='Picture of the author'
-              width={375}
-              height={667}
-              className='w-full h-full object-cover'
-              placeholder='blur' // Optional blur-up while loading
+              width={149}
+              height={36}
+              placeholder='blur'
             />
+            <div className='close'>
+              <button onClick={() => setOpenMenu(false)}>
+                <Image
+                  src={closeMenuIcon}
+                  alt='Picture of the author'
+                  width={44}
+                  height={44}
+                  placeholder='blur' // Optional blur-up while loading
+                />
+              </button>
+            </div>
           </div>
-          <div className='body relative z-[2] overflow-auto h-full'>
-            <div className='flex items-center justify-between'>
-              <Image
-                src={whiteLogoImg}
-                alt='Picture of the author'
-                width={149}
-                height={36}
-                placeholder='blur'
-              />
-              <div className='close'>
-                <button onClick={() => setOpenMenu(false)}>
-                  <Image
-                    src={closeMenuIcon}
-                    alt='Picture of the author'
-                    width={44}
-                    height={44}
-                    placeholder='blur' // Optional blur-up while loading
-                  />
-                </button>
+          <div className='menu mt-12'>
+            <ul>
+              {headerMenu.map((menu, idx) => (
+                <li key={`item-${idx.toString()}`} className='mb-5'>
+                  <p className='text-white base-transition cursor-pointer text-2xl px-2 xl:px-4 h-16'>
+                    {' '}
+                    {menu.title}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className='contact'>
+            <div className='item'>
+              <div className='label text-white opacity-50 text-md'>Email</div>
+              <div className='value text-white mt-4'>
+                <a href="mailto:molinari2024@bidahub.com">molinari2024@bidahub.com</a>
               </div>
             </div>
-            <div className='menu mt-12'>
-              <ul>
-                {headerMenu.map((menu, idx) => (
-                  <li key={`item-${idx.toString()}`} className='mb-5'>
-                    <p className='text-white base-transition cursor-pointer text-2xl px-2 xl:px-4 h-16'>
-                      {' '}
-                      {menu.title}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+            <div className='item mt-8'>
+              <div className='label text-white opacity-50 text-md'>Số điện thoại</div>
+              <div className='value text-white mt-4'>
+                <a href="tel:84348999888">+84.348.999.888</a>
+              </div>
             </div>
-            <div className='contact'>
-              <div className='item'>
-                <div className='label text-white opacity-50 text-md'>Email</div>
-                <div className='value text-white mt-4'>
-                    <a href="mailto:molinari2024@bidahub.com">molinari2024@bidahub.com</a>
-                </div>
-              </div>
-              <div className='item mt-8'>
-                <div className='label text-white opacity-50 text-md'>Số điện thoại</div>
-                <div className='value text-white mt-4'>
-                    <a href="tel:84348999888">+84.348.999.888</a>
-                </div>
-              </div>
-              <div className='item mt-8'>
-                <div className='label text-white opacity-50 text-md'>Mạng xã hội</div>
-                <div className='value text-white mt-4 flex gap-3'>
-                    <a href="/" target='_blank'>Facebook</a>
-                    <a href="/" target='_blank'>Instagram</a>
-                    <a href="/" target='_blank'>Youtube</a>
-                </div>
+            <div className='item mt-8'>
+              <div className='label text-white opacity-50 text-md'>Mạng xã hội</div>
+              <div className='value text-white mt-4 flex gap-3'>
+                <a href="/" target='_blank'>Facebook</a>
+                <a href="/" target='_blank'>Instagram</a>
+                <a href="/" target='_blank'>Youtube</a>
               </div>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

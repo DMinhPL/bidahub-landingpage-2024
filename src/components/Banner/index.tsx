@@ -29,12 +29,12 @@ const Banner: React.FC = () => {
                             className='block xl:hidden'
                             placeholder="blur" // Optional blur-up while loading
                         />
-                        <div className='px-6 py-4 lg:py-6 lg:px-12 text-white mt-12 relative overflow-hidden'>
+                        <div className='px-6 py-4 lg:py-6 text-white mt-12 relative overflow-hidden'>
                             <Image src={bgTextImg} alt="text img" className='absolute top-0 left-0 w-full h-full z-[1] hidden xl:block' />
                             <Image src={bgTextMobileImg} alt="text img" className='absolute top-0 h-full left-0 w-full z-[1] block xl:hidden' />
                             <div className='relative z-10 font-svnDay'>
                                 <h3 className='text-lg lg:text-2xl font-bold text-center uppercase'>Nhà thi đấu rạch miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh</h3>
-                                <p className='text-lg lg:text-2xl mt-1 lg:mt-0 font-bold text-center uppercase'>09/12/2024 - 15/12/2024</p>
+                                <p className='text-lg lg:text-2xl mt-2 font-bold text-center uppercase'>09/12/2024 - 15/12/2024</p>
                             </div>
                         </div>
                     </div>

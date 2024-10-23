@@ -1,28 +1,29 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
- 
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+
     // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
         'cool-black': '#001A69',
-        'inchworm': '#CCFF66',
+        inchworm: '#CCFF66',
         'raisin-black': '#1F2128',
         'blue-ryb': '#0D47F8',
         'imperial-blue': '#002493',
-        'mindaro': '#DCFD77',
+        mindaro: '#DCFD77',
         'neon-fuchsia': '#F5416C',
         'persian-blue': '#0035d7',
+        'white-smoke': '#F6F6F6',
       },
       fontFamily: {
         poppins: ['SVN-Poppins', 'sans-serif'],
-        svnDay: ["var(--svn-days)"],
+        svnDay: ['var(--svn-days)'],
       },
       container: {
         screens: {
@@ -51,6 +52,9 @@ module.exports = {
       '2xl': '1440px',
       // => @media (min-width: 1440px) { ... }
     },
+    aspectRatio: {
+      '360/420': '360 / 420',
+    },
     fontSize: {
       ss: '0.6rem', // 9.6px
       xs: '0.625rem', // 10px
@@ -66,4 +70,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
