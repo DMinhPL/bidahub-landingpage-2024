@@ -1,13 +1,12 @@
 'use client';
-import React, { useState } from 'react';
-import logoImg from '../../assets/images/Logo.png';
 import Image from 'next/image';
-import LanguageSwitcher from '../LanguageSwicher';
-import whiteLogoImg from '../../assets/images/white-logo.png';
+import React, { useState } from 'react';
+import bgMenuMobile from '../../assets/images/bg-menu-mobile.png';
 import burgerIcon from '../../assets/images/ic-burger.png';
 import closeMenuIcon from '../../assets/images/ic-close-menu.png';
-import bgMenuMobile from '../../assets/images/bg-menu-mobile.png';
-import useWindowDimensions from '@/hooks/useWindowDemensions';
+import logoImg from '../../assets/images/Logo.png';
+import whiteLogoImg from '../../assets/images/white-logo.png';
+import LanguageSwitcher from '../LanguageSwicher';
 
 const headerMenu = [
   {
