@@ -49,7 +49,7 @@ const handleScrollToSection = (target: string) => {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
       // Scroll to the section and add 50px offset
       window.scrollTo({
-        top: sectionTop - 50, // Subtract 50px for the additional offset
+        top: sectionTop - 45, // Subtract 50px for the additional offset
         behavior: 'smooth',
       });
     }
