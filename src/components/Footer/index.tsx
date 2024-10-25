@@ -27,7 +27,7 @@ const menus = [
 
 const Footer: React.FC = () => {
     return (
-        <footer>
+        <footer className='relative z-[2]'>
             <div className='container mx-auto pt-8 lg:pt-[60px]'>
                 <Image
                     src={footerImg}
