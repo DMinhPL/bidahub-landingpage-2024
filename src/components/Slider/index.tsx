@@ -8,7 +8,7 @@ import Slider, { Settings } from 'react-slick';
 // Define custom arrow components
 interface ArrowProps {
     className?: string;
-    onClick: () => void;
+    onClick?: () => void;
 }
 const PrevArrow = (props: ArrowProps) => {
     const { className, onClick } = props;
