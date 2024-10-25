@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import bgMenuMobile from '../../assets/images/bg-menu-mobile.png';
 import burgerIcon from '../../assets/images/ic-burger.png';
 import closeMenuIcon from '../../assets/images/ic-close-menu.png';
@@ -31,13 +31,74 @@ const headerMenu = [
   },
   {
     title: 'Thể thức thi đấu & Đăng ký',
-    target: '#rules-register',
+    target: '#register',
     id: 5,
   },
 ];
 
+const handleScrollToSection = (target: string) => {
+  if (target === '#home') {
+    // If target is #home, scroll to the very top of the page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  } else {
+    const section = document.querySelector(target);
+    if (section) {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      // Scroll to the section and add 50px offset
+      window.scrollTo({
+        top: sectionTop - 50, // Subtract 50px for the additional offset
+        behavior: 'smooth',
+      });
+    }
+  }
+};
+
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>('home');
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section');
+
+    const handleScroll = () => {
+      let currentSection = '';
+      console.log(window.scrollY, 'window scroll');
+      if (window.scrollY === 0) {
+        // If near the top, set home as the active section
+        setActiveSection('home');
+        return;
+      }
+
+      // Iterate through sections to find the active one based on scroll position
+      sections.forEach((section) => {
+        console.log(section.offsetTop, section.getBoundingClientRect().top);
+        const sectionTop = section.offsetTop - 50; // Adjusted for offset
+        if (window.scrollY >= sectionTop && window.scrollY <= sectionTop + section.clientHeight) {
+          currentSection = section.id;
+        }
+      });
+
+      // Set the active section if identified
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Run the function once on mount to detect the initial active section
+    handleScroll();
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
   return (
     <header className='o-header fixed z-50 top-6 left-0 right-0'>
@@ -58,7 +119,10 @@ const Header: React.FC = () => {
             <ul className='flex items-center'>
               {headerMenu.map((menu, idx) => (
                 <li key={`item-${idx.toString()}`} className='font-bold'>
-                  <p className='hover:text-blue-ryb base-transition cursor-pointer text-md 2xl:text-base px-2 xl:px-4'>
+                  <p
+                    className={`hover:text-blue-ryb base-transition cursor-pointer text-md 2xl:text-base px-2 xl:px-4 ${activeSection === menu.target.slice(1) ? 'text-blue-ryb' : 'text-raisin-black'}`}
+                    onClick={() => handleScrollToSection(menu.target)}
+                  >
                     {' '}
                     {menu.title}
                   </p>

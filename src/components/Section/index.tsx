@@ -10,14 +10,14 @@ interface Props {
 
 const Section: React.FC<Props> = ({ className, id, title, children }) => {
     return (
-        <div
+        <section
             id={id}
             className={`${className ? `${className} ` : ''
                 }container mx-auto padding-section`}
         >
             <Heading>{title}</Heading>
             {children}
-        </div>
+        </section>
     );
 };
 

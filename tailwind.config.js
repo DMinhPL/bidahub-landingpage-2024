@@ -20,6 +20,7 @@ module.exports = {
         'neon-fuchsia': '#F5416C',
         'persian-blue': '#0035d7',
         'white-smoke': '#F6F6F6',
+        navy: '#000C79',
       },
       fontFamily: {
         poppins: ['SVN-Poppins', 'sans-serif'],
