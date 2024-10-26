@@ -44,7 +44,6 @@ const Pulldown: React.FC<PulldownProps> = ({
         <select
           id={id}
           disabled={disabled}
-          placeholder={placeholder}
           className={classNames(
             'border border-gainsboro rounded-lg w-full bg-white text-gunmetal-500 shadow-none outline-none placeholder:text-roman-silver text-raisin-black font-medium',
             className,
