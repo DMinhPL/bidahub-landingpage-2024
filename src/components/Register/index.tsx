@@ -44,7 +44,7 @@ const Register: React.FC = () => {
             className='register scrollToSection'
             id='register'
         >
-            <div className='bg-white rounded-3xl p-4 lg:p-8 text-raisin-black'>
+            <div className='bg-white rounded-3xl p-4 lg:p-8 text-raisin-black max-w-[1128px] mx-auto'>
                 <Info />
                 <div className='register-form pt-6'>
                     <h3 className='font-svnDay text-2xl lg:text-3xl text-blue-ryb'>
