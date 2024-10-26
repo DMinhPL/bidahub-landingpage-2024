@@ -3,7 +3,7 @@ import React from 'react';
 const Info: React.FC = () => {
     return (
         <div className='info pb-6 border-b border-gainsboro'>
-            <h3 className='font-svnDay text-2xl lg:text-3xl text-blue-ryb'>
+            <h3 className='font-svnDay text-2xl lg:text-3xl text-ua-blue'>
                 Thông tin về giải đấu
             </h3>
             <ul className='mt-4 list-disc pl-6'>

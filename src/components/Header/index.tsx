@@ -7,6 +7,7 @@ import closeMenuIcon from '../../assets/images/ic-close-menu.png';
 import logoImg from '../../assets/images/Logo.png';
 import whiteLogoImg from '../../assets/images/white-logo.png';
 import LanguageSwitcher from '../LanguageSwicher';
+import Link from 'next/link';
 
 const headerMenu = [
   {
@@ -104,13 +105,14 @@ const Header: React.FC = () => {
         <div className='o-header__wrapper bg-white px-4 py-4 lg:py-[22px] rounded-2xl shadow-sm flex items-center justify-between'>
           {/* Logo  */}
           <div className='o-header__logo'>
-            <Image
-              src={logoImg}
-              alt='Picture of the author'
-              width={149}
-              height={36}
-              placeholder='blur' // Optional blur-up while loading
-            />
+            <Link href='/'>
+              <Image
+                src={logoImg}
+                alt='Picture of the author'
+                width={149}
+                height={36}
+                placeholder='blur' // Optional blur-up while loading
+              /></Link>
           </div>
           {/* Navigation  */}
           <nav className='hidden xl:block'>

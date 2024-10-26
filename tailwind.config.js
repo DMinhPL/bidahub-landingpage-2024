@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import forms from '@tailwindcss/forms';
+
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -27,6 +29,11 @@ module.exports = {
         'medium-turquoise': '#35CAC1',
         'anti-flash-white2': '#F3F3F3',
         'brilliant-azure': '#3D8EFF',
+        gunmetal: '#2E3538',
+        'alice-blue': '#F3F7FC',
+        feldgrau: '#4E5A5F',
+        manatee: '#9A9EAC',
+        'ua-blue': '#0029BF',
       },
       fontFamily: {
         poppins: ['SVN-Poppins', 'sans-serif'],
@@ -41,6 +48,21 @@ module.exports = {
           '2xl': '1440px',
         },
         padding: '2rem',
+      },
+      animation: {
+        'rotate-ball1': 'orbit 1.75s linear infinite',
+        'rotate-ball2': 'orbit 1.75s linear infinite 0.3s',
+        'rotate-ball3': 'orbit 1.75s linear infinite 0.6s',
+        'rotate-ball4': 'orbit 1.75s linear infinite 0.9s',
+        'rotate-ball5': 'orbit 1.75s linear infinite 1.2s',
+      },
+      keyframes: {
+        orbit: {
+          '0%': { transform: 'rotate(0deg) translateX(90px) rotate(0deg)' }, // Increased translateX for larger orbit
+          '100%': {
+            transform: 'rotate(360deg) translateX(90px) rotate(-360deg)',
+          },
+        },
       },
     },
     screens: {
@@ -76,5 +98,5 @@ module.exports = {
       '5xl': '3rem', // H2 // 48px
     },
   },
-  plugins: [],
+  plugins: [forms],
 };
