@@ -65,6 +65,9 @@ const CustomSlider: React.FC<SliderProps> = ({ slides }) => {
         slidesToShow: 3,
         slidesToScroll: 1,
         centerPadding: '8%',
+        autoplay: true,
+        pauseOnHover: false,
+        pauseOnFocus: false,
         arrows: true, // Enable custom arrows
         prevArrow: <PrevArrow />, // Custom prev arrow
         nextArrow: <NextArrow />, // Custom next arrow
@@ -90,7 +93,7 @@ const CustomSlider: React.FC<SliderProps> = ({ slides }) => {
         <div className="relative pb-14 lg:pb-16">
             <Slider {...settings}>
                 {slides.map((slide, index) => (
-                    <div key={index} className="w-full flex-shrink-0">
+                    <div key={`item-${index.toString()}`} className="w-full flex-shrink-0">
                         <div className="relative w-[288px] lg:w-[360px] flex flex-col justify-center">
                             <Image
                                 width={360}

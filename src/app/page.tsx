@@ -4,6 +4,7 @@ import Faq from "@/components/Faq";
 import Introduction from "@/components/Introduction";
 import Partners from "@/components/Partners";
 import Prizes from "@/components/Prizes";
+import Register from "@/components/Register";
 import dynamic from "next/dynamic";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Introduction />
       <Agenda />
       <Prizes />
+      <Register />
       <Faq />
       <Partners />
     </>

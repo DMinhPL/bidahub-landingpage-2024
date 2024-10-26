@@ -21,6 +21,12 @@ module.exports = {
         'persian-blue': '#0035d7',
         'white-smoke': '#F6F6F6',
         navy: '#000C79',
+        gainsboro: '#D8DCDE',
+        'roman-silver': '#84939A',
+        'carmine-pink': '#E54B4B',
+        'medium-turquoise': '#35CAC1',
+        'anti-flash-white2': '#F3F3F3',
+        'brilliant-azure': '#3D8EFF',
       },
       fontFamily: {
         poppins: ['SVN-Poppins', 'sans-serif'],

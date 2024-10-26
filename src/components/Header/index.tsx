@@ -65,7 +65,6 @@ const Header: React.FC = () => {
 
     const handleScroll = () => {
       let currentSection = '';
-      console.log(window.scrollY, 'window scroll');
       if (window.scrollY === 0) {
         // If near the top, set home as the active section
         setActiveSection('home');
@@ -74,7 +73,6 @@ const Header: React.FC = () => {
 
       // Iterate through sections to find the active one based on scroll position
       sections.forEach((section) => {
-        console.log(section.offsetTop, section.getBoundingClientRect().top);
         const sectionTop = section.offsetTop - 50; // Adjusted for offset
         if (window.scrollY >= sectionTop && window.scrollY <= sectionTop + section.clientHeight) {
           currentSection = section.id;
