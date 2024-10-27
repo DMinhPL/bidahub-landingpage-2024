@@ -17,7 +17,7 @@ const PrevArrow = (props: ArrowProps) => {
             className={`${className} custom-prev-arrow w-14 h-14 lg:w-16 lg:h-16 left-[32%] md:left-[40%] xl:left-[44%] flex items-center justify-center bg-inchworm rounded-full hover:bg-inchworm`} // Add custom styling class here
             style={{
                 position: 'absolute',
-                top: 'calc(100% + 40px)',
+                top: 'calc(100% + 60px)',
                 zIndex: 1,
                 cursor: 'pointer',
             }}
@@ -35,7 +35,7 @@ const NextArrow = (props: ArrowProps) => {
             className={`${className} custom-next-arrow w-14 h-14 lg:w-16 lg:h-16 right-[32%] md:right-[40%] xl:right-[44%] flex items-center justify-center bg-inchworm rounded-full hover:bg-inchworm`} // Add custom styling class here
             style={{
                 position: 'absolute',
-                top: 'calc(100% + 40px)',
+                top: 'calc(100% + 60px)',
                 transform: 'translateY(-50%)',
                 zIndex: 1,
                 cursor: 'pointer',

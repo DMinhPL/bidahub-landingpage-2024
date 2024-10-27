@@ -4,17 +4,20 @@ import dynaLogo from '../../assets/images/logo/logo-dyna.png';
 import gabrielsLogo from '../../assets/images/logo/logo-gabriels.png';
 import molinariLogo from '../../assets/images/logo/logo-molinari.png';
 import vinabidaLogo from '../../assets/images/logo/logo-vinabida.png';
+import tuongThanhLogo from '../../assets/images/logo/logo-tuongThanh.png';
+import vectorLogo from '../../assets/images/logo/logo-vector.png';
+
 import Image from 'next/image';
 import Section from '../Section';
 
 const logoList = [
-    vinabidaLogo,
     bidahubLogo,
+    vinabidaLogo,
     molinariLogo,
     gabrielsLogo,
     dynaLogo,
-    molinariLogo,
-    molinariLogo,
+    tuongThanhLogo,
+    vectorLogo,
 ];
 
 const Partners: React.FC = () => {

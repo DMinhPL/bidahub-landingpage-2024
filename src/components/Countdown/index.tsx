@@ -72,11 +72,11 @@ const Countdown: React.FC = () => {
                 <TimeBox value={timeLeft.minutes} label='Phút' />
                 <TimeBox value={timeLeft.seconds} label='Giây' />
             </div>
-            <div className="address text-center mt-8">
+            <div className="address text-center mt-10">
                 <p className='font-svnDay text-2xl'>Nhà thi đấu Rạch Miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh</p>
                 <p className='font-svnDay text-2xl mt-6'>09/12/2024 - 15/12/2024</p>
             </div>
-            <div className="register-number max-w-[521px] mx-auto mt-9 relative">
+            <div className="register-number max-w-[521px] mx-auto mt-10 relative">
                 <Image src={bgRegisterNumber} alt="bg register number" className='absolute top-0 left-0 w-full h-full z-[1]' />
                 <div className="relative z-[2] grid grid-cols-2 font-svnDay">
                     <p className='text-blue-ryb text-lg lg:text-2xl max-w-[250px] px-4 py-5 lg:px-7 lg:py-4'>Số VĐV đã đăng ký tham gia giải đấu</p>

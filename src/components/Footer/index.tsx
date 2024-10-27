@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                     <ul className='flex flex-col md:flex-row gap-4 md:gap-0 justify-between'>
                         {menus.map((menu, idx) => (
                             <li key={`item-${idx.toString()}`} className='font-bold'>
-                                <button className='lg:text-2xl text-white cursor-pointer font-normal base-transition hover:text-blue-ryb'>
+                                <button className='lg:text-2xl text-white cursor-pointer font-normal base-transition hover:opacity-100 opacity-80'>
                                     {menu.title}
                                 </button>
                             </li>
@@ -49,16 +49,16 @@ const Footer: React.FC = () => {
                 <div className="contact md:flex justify-between mt-12">
                     <div className="right">
                         <div>
-                            <p className='text-md text-white font-normal'>Email</p>
+                            <p className='text-md text-white font-normal opacity-50'>Email</p>
                             <a className='text-white font-normal block mt-4 underline' href="mailto:molinari2024@bidahub.com">molinari2024@bidahub.com</a>
                         </div>
                         <div className='mt-8'>
-                            <p className='text-md text-white font-normal'>Số điện thoại</p>
+                            <p className='text-md text-white font-normal opacity-50'>Số điện thoại</p>
                             <a className='text-white font-normal block mt-4' href="tel:+84348999888">+84.348.999.888</a>
                         </div>
                     </div>
                     <div className="left mt-8 md:mt-0">
-                        <p className='text-md text-white font-normal'>Mạng xã hội</p>
+                        <p className='text-md text-white font-normal opacity-50'>Mạng xã hội</p>
                         <div className="flex justify-between min-w-[289px]">
                             <a className='text-white font-normal block mt-4' href="/">Facebook</a>
                             <a className='text-white font-normal block mt-4' href="/">Instagram</a>
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className='copyright text-center text-md text-white-smoke py-5 border-t border-white mt-8'>
+            <div className='copyright text-center text-md text-white-smoke py-5 border-t border-white border-opacity-[0.2] mt-8'>
                 © 2024 BidaHub. All rights reserved.
             </div>
         </footer>
