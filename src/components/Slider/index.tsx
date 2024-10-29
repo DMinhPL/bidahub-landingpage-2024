@@ -14,7 +14,7 @@ const PrevArrow = (props: ArrowProps) => {
     const { className, onClick } = props;
     return (
         <div
-            className={`${className} custom-prev-arrow w-14 h-14 lg:w-16 lg:h-16 left-[32%] md:left-[40%] xl:left-[44%] flex items-center justify-center bg-inchworm rounded-full hover:bg-inchworm`} // Add custom styling class here
+            className={`${className} custom-prev-arrow w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 left-[34%] md:left-[40%] xl:left-[44%] flex items-center justify-center bg-inchworm rounded-full hover:bg-inchworm`} // Add custom styling class here
             style={{
                 position: 'absolute',
                 top: 'calc(100% + 60px)',
@@ -32,7 +32,7 @@ const NextArrow = (props: ArrowProps) => {
     const { className, onClick } = props;
     return (
         <div
-            className={`${className} custom-next-arrow w-14 h-14 lg:w-16 lg:h-16 right-[32%] md:right-[40%] xl:right-[44%] flex items-center justify-center bg-inchworm rounded-full hover:bg-inchworm`} // Add custom styling class here
+            className={`${className} custom-next-arrow w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 right-[34%] md:right-[40%] xl:right-[44%] flex items-center justify-center bg-inchworm rounded-full hover:bg-inchworm`} // Add custom styling class here
             style={{
                 position: 'absolute',
                 top: 'calc(100% + 60px)',
@@ -103,8 +103,8 @@ const CustomSlider: React.FC<SliderProps> = ({ slides }) => {
                                 className="w-full h-full object-cover rounded-2xl aspect-360/420"
                             />
                             <div className="mt-6">
-                                <h3 className="text-white font-svnDay text-2xl">{slide.title}</h3>
-                                <p className="text-white text-lg mt-1 font-normal">{slide.subtitle}</p>
+                                <h3 className="text-white font-svnDay text-xl md:text-2xl">{slide.title}</h3>
+                                {/* <p className="text-white text-lg mt-1 font-normal">{slide.subtitle}</p> */}
                             </div>
                         </div>
                     </div>

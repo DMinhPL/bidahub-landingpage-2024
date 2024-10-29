@@ -12,7 +12,8 @@ import Pulldown from '../Pulldown';
 import Radio from '../Radio';
 import Section from '../Section';
 import Info from './Info';
-
+import icCalendar from '../../assets/images/ic-calendar.png';
+import Image from 'next/image';
 
 type FormValues = {
     FullName: string;
@@ -29,6 +30,8 @@ type FormValues = {
 
 const Register: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
+    const [isDateFocused, setIsDateFocused] = useState(false);
+
     const {
         control,
         handleSubmit,
@@ -179,7 +182,7 @@ const Register: React.FC = () => {
                                         name='DateOfBirth'
                                         control={control}
                                         render={({ field }) => (
-                                            <div className='form-input border-none'>
+                                            <div className='form-input border-none relative'>
                                                 <label
                                                     className='font-semibold mb-2 block'
                                                     htmlFor='DateOfBirth'
@@ -187,14 +190,29 @@ const Register: React.FC = () => {
                                                     Ngày - tháng - năm sinh{' '}
                                                     <span className='text-neon-fuchsia'>*</span>
                                                 </label>
-                                                <Input
-                                                    {...field}
-                                                    id='DateOfBirth'
-                                                    type='date'
-                                                    name='DateOfBirth'
-                                                    placeholder='Chọn ngày tháng năm sinh'
-                                                    error={errors.DateOfBirth?.message}
-                                                />
+                                                <div className="relative">
+                                                    {!isDateFocused && !field.value && (
+                                                        <span
+                                                            className='absolute top-1/2 left-3 transform -translate-y-1/2 text-roman-silver'
+                                                            onClick={() => document.getElementById('DateOfBirth')?.focus()}
+                                                        >
+                                                            Chọn ngày tháng năm sinh
+                                                        </span>
+                                                    )}
+                                                    <span className='absolute top-1/2 right-3 transform -translate-y-1/2 z-[3] w-6 h-6 pointer-events-none'>
+                                                        <Image src={icCalendar.src} width={icCalendar.width} height={icCalendar.height} alt='icon' />
+                                                    </span>
+                                                    <Input
+                                                        {...field}
+                                                        id='DateOfBirth'
+                                                        type='date'
+                                                        name='DateOfBirth'
+                                                        placeholder='Chọn ngày tháng năm sinh'
+                                                        onFocus={() => setIsDateFocused(true)}
+                                                        onBlur={() => setIsDateFocused(false)}
+                                                        error={errors.DateOfBirth?.message}
+                                                    />
+                                                </div>
                                             </div>
                                         )}
                                     />
@@ -319,7 +337,7 @@ const Register: React.FC = () => {
                                         )}
                                     />
                                 </div>
-                                <p className='font-medium mt-6 italic'>
+                                <p className='font-medium mt-6 italic text-md md:text-base'>
                                     <span className='text-neon-fuchsia'>Lưu ý:</span> Chúng tôi sẽ
                                     gửi thông tin giải đấu, mã số thi đấu và giải thưởng qua{' '}
                                     <strong>Zalo</strong>. VĐV vui lòng cung cấp số điện thoại đã

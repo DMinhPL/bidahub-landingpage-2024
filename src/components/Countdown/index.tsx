@@ -74,7 +74,7 @@ const Countdown: React.FC = () => {
             </div>
             <div className="address text-center mt-10">
                 <p className='font-svnDay text-2xl'>Nhà thi đấu Rạch Miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh</p>
-                <p className='font-svnDay text-2xl mt-6'>09/12/2024 - 15/12/2024</p>
+                <p className='font-svnDay text-2xl mt-6'>11/12/2024 - 16/12/2024</p>
             </div>
             <div className="register-number max-w-[521px] mx-auto mt-10 relative">
                 <Image src={bgRegisterNumber} alt="bg register number" className='absolute top-0 left-0 w-full h-full z-[1]' />

@@ -54,17 +54,17 @@ const FAQComponent: React.FC = () => {
         >
             <div className="max-w-[1128px] mx-auto">
                 {faqData.map((faq, index) => (
-                    <div key={index} className="border-b border-white border-opacity-20 py-10">
+                    <div key={index} className={`border-b border-white border-opacity-20  md:py-10 ${index === 0 ? 'pt-0 pb-6' : 'py-6'}`}>
                         <button
                             onClick={() => toggleFAQ(index)}
                             className="w-full text-left"
                         >
-                            <p className="text-2xl font-svnDay">{faq.question}</p>
+                            <p className="text-lg md:text-2xl font-svnDay">{faq.question}</p>
                             <p className={`${openIndex === index ? '' : 'opacity-50'} font-medium`}>{faq.date}</p>
 
                         </button>
                         {openIndex === index && (
-                            <div className="text-xl pt-10">
+                            <div className="text-md md:text-base pt-6 md:pt-10">
                                 {faq.answer}
                             </div>
                         )}

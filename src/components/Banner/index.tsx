@@ -34,7 +34,7 @@ const Banner: React.FC = () => {
                             <Image src={bgTextMobileImg} alt="text img" className='absolute top-0 h-full left-0 w-full z-[1] block xl:hidden' />
                             <div className='relative z-10 font-svnDay'>
                                 <h3 className='text-lg lg:text-2xl font-bold text-center uppercase'>Nhà thi đấu rạch miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh</h3>
-                                <p className='text-lg lg:text-2xl mt-2 font-bold text-center uppercase'>09/12/2024 - 15/12/2024</p>
+                                <p className='text-lg lg:text-2xl mt-2 font-bold text-center uppercase'>11/12/2024 - 16/12/2024</p>
                             </div>
                         </div>
                     </div>

@@ -11,7 +11,7 @@ interface AgendaItems {
 
 const timelineItems = [
     {
-        date: '21/10/2024',
+        date: '01/11/2024',
         description: 'Mở cổng đăng kí cho vận động viên',
     },
     { date: '05/12/2024', description: 'Đóng cổng đăng kí tham gia thi đấu' },
@@ -85,7 +85,7 @@ const Agenda: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <p className='font-medium italic mt-4'>
+            <p className='font-medium italic mt-4 text-md md:text-base'>
                 Lưu ý: Thông tin chi tiết về lịch thi đấu và bốc thăm sẽ được cập nhật
                 trên Facebook chính thức của giải đấu (Molinari Tournament 2024) trước
                 ngày khai mạc.

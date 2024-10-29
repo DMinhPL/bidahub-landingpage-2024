@@ -82,6 +82,11 @@ const Payment = () => {
                             </p>
                         </li>
                     </ul>
+                    <div className="edit-info max-w-[275px] mx-auto mt-4">
+                        <button className='h-12 bg-white border border-brilliant-azure rounded-lg hover:text-white hover:bg-cool-black text-gunmetal flex justify-center items-center py-3 px-4 font-medium capitalize base-transition'>
+                            thay đổi thông tin đăng ký
+                        </button>
+                    </div>
                 </div>
                 {/* ===================== */}
                 <div className='py-4 border-b border-gainsboro'>
@@ -127,6 +132,9 @@ const Payment = () => {
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                    <div className="mt-6">
+                        <p className='text-lg text-gunmetal font-medium'>Hạn thanh toán: 3 ngày kể từ ngày đăng ký, nếu chưa thanh toán thì đăng ký sẽ không hợp lệ.</p>
                     </div>
                 </div>
                 <div className='submit mt-6 flex flex-col justify-center items-center'>

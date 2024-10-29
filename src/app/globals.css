@@ -8,7 +8,7 @@
 
 @layer components {
   .padding-section {
-    @apply py-8 lg:py-[60px];
+    @apply py-8 lg:py-[60px] md:px-8 px-5;
   }
   .button-base-style {
       @apply inline-flex items-center justify-center transition duration-300 ease-in-out; 
@@ -59,4 +59,10 @@ body {
 .slick-list{padding:0 20% 0 0 !important;}
 .slick-prev:before, .slick-next:before {
   display: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;;
+    /* -webkit-appearance: none; */
 }

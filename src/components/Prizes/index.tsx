@@ -5,10 +5,10 @@ const Prizes: React.FC = () => {
     const data = [
         {
             title: '1 Giải Nhất',
-            totalPrize: '260',
+            totalPrize: '182',
             currency: 'Triệu đồng',
             details: [
-                'Tiền mặt: 206 triệu',
+                'Tiền mặt',
                 '1 Kuro CMI 5',
                 '1 Ngọn Lancia',
                 '1 Túi cơ Molinari 3x6 cứng',
@@ -16,10 +16,10 @@ const Prizes: React.FC = () => {
         },
         {
             title: '1 Giải Nhì',
-            totalPrize: '130',
+            totalPrize: '112',
             currency: 'Triệu đồng',
             details: [
-                'Tiền mặt: 81,5 triệu',
+                'Tiền mặt',
                 '1 Kuro CMI 4',
                 '1 Ngọn Lancia',
                 '1 Túi cơ Molinari 3x6 mềm',
@@ -27,12 +27,13 @@ const Prizes: React.FC = () => {
         },
         {
             title: '2 Giải Ba',
-            totalPrize: '52',
+            totalPrize: '62',
             currency: 'Triệu đồng',
             details: [
-                'Tiền mặt: 18,5 triệu',
+                'Tiền mặt',
                 '1 Kuro CMI 3',
                 '1 Túi cơ Molinari 2x4 cứng',
+                'Điểm thưởng: 10.000.000 điểm (tương ứng với 10 triệu đồng)',
             ],
         },
         {
@@ -85,12 +86,12 @@ const Prizes: React.FC = () => {
                     >
                         <div
                             className={`${i === 0 || i === 1 || i === 2
-                                    ? 'border border-inchworm shadow-inchworm shadow-inner'
-                                    : ''
+                                ? 'border-2 border-inchworm shadow-inchworm shadow-inner'
+                                : ''
                                 } relative lg:min-h-[420px] h-full p-6 bg-navy text-white rounded-3xl flex flex-col`}
                         >
                             <div className='top border-b border-[#1a2483] pb-4'>
-                                <h3 className='text-4xl font-svnDay text-center mx-auto leading-[50px]'>
+                                <h3 className={`font-svnDay text-center mx-auto leading-[50px] ${i === 0 || i === 1 || i === 2 ? 'text-3xl md:text-4xl' : 'text-2xl md:text-4xl'}`}>
                                     {item.title}
                                 </h3>
                                 <div className='flex gap-6 items-center mt-6 justify-center'>
@@ -106,7 +107,7 @@ const Prizes: React.FC = () => {
                                 </div>
                             </div>
                             <div className='mt-6'>
-                                <p className='text-2xl font-svnDay'>Bao gồm:</p>
+                                <p className='text-xl md:text-2xl font-svnDay'>Bao gồm:</p>
                                 <ul className='mt-6 pl-6 list-disc'>
                                     {item.details.map((detail, index) => (
                                         <li className='leading-[2]' key={index}>
@@ -127,7 +128,7 @@ const Prizes: React.FC = () => {
                 className={`relative lg:min-h-[420px] h-full p-6 bg-navy text-white rounded-3xl flex flex-col mt-2`}
             >
                 <div className='top border-b border-[#1a2483] pb-4'>
-                    <h3 className='text-4xl font-svnDay text-center mx-auto leading-[50px]'>
+                    <h3 className='font-svnDay text-center mx-auto leading-[50px] text-2xl md:text-4xl'>
                         2 Giải seri cao nhất
                     </h3>
                     <div className='flex gap-6 items-center mt-6 justify-center'>
@@ -149,7 +150,7 @@ const Prizes: React.FC = () => {
                     </ul>
                 </div>
             </div>
-            <div className='mt-4 italic'>
+            <div className='mt-4 italic text-md md:text-base'>
                 <p>
                     Lưu ý: Điểm thưởng này là đơn vị hỗ trợ thanh toán được dùng riêng
                     biệt trên hệ thống của BidaHub.
@@ -161,7 +162,7 @@ const Prizes: React.FC = () => {
                 </p>
                 <p>Điểm này không thể chuyển nhượng hoặc quy đổi thành tiền mặt.</p>
             </div>
-        </Section>
+        </Section >
     );
 };
 
