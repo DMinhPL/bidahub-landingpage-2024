@@ -6,6 +6,7 @@ import "./globals.css";
 import Image from "next/image";
 import leftCircle from "../assets/images/textures/blur-circle.svg";
 import rightCircle from "../assets/images/textures/blur-circle-right.svg";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "Bidahub",
@@ -35,6 +36,7 @@ export default function RootLayout({
             <div className="relative z-[2]">
               {children}
             </div>
+            <ToastContainer />
           </main>
           <Footer />
         </div>

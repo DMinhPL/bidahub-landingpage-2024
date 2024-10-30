@@ -1,6 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
 
 export interface OptionType {
   id?: string | number;
@@ -37,7 +37,6 @@ const Pulldown: React.FC<PulldownProps> = ({
   onChange,
   ...props
 }) => {
-  const [selected, setSelected] = useState<string>();
   return (
     <div className={classNames(`relative ${classNameContainer}`, { 'flex items-center': isHorizontal })}>
       <div className={classNames('relative', { 'w-full': isHorizontal, 'mt-1': !isHorizontal })}>
@@ -54,14 +53,9 @@ const Pulldown: React.FC<PulldownProps> = ({
               'focus:shadow-input-focus': true,
               'px-4 py-2 h-[48px] text-base leading-6': size === 'base',
               'p-2 h-[36px] text-md leading-4': size === 'sm',
-              'text-roman-silver': !selected && !value,
-              'text-raisin-black': selected,
             }
           )}
-          onChange={(e) => {
-            onChange?.(e);
-            setSelected(e.target.value);
-          }}
+          onChange={onChange}
           {...props}
         >
           <option value='' disabled hidden selected={!value}>

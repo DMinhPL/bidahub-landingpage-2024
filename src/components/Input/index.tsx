@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import React, {
   forwardRef, useCallback, useMemo, useState
 } from 'react';
+import icCalendar from '../../assets/images/ic-calendar.png';
+import Image from 'next/image';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   type?: 'text' | 'number' | 'email' | 'password' | 'tel' | 'date';
@@ -57,6 +59,11 @@ const InputRef: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   return (
     <div className='a-input'>
       <div className='relative'>
+        {
+          type === 'date' && <span className='absolute top-1/2 right-3 transform -translate-y-1/2 z-[3] w-6 h-6 pointer-events-none'>
+            <Image src={icCalendar.src} width={icCalendar.width} height={icCalendar.height} alt='icon' />
+          </span>
+        }
         <input
           type={inputType === 'password' && showPassword ? 'text' : inputType}
           placeholder={placeholder}

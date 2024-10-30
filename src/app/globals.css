@@ -66,3 +66,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;;
     /* -webkit-appearance: none; */
 }
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  z-index: 50;
+}

@@ -1,0 +1,1 @@
+export const REGISTER_RESPONSE_SESSION = 'register-response-session';
