@@ -79,7 +79,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, isEdit, i
             reset(frmValues);
             setValue('ReferralSource', data.ReferralSource);
         }
-    }, [isEdit, sessionStorage, reset, setValue]);
+    }, [isEdit, reset, setValue]);
 
     return (
         <form className='mt-4' onSubmit={handleSubmit(handleFormSubmit)}>

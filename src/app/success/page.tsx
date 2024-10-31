@@ -1,9 +1,16 @@
 'use client';
+import { REGISTER_RESPONSE_SESSION } from '@/utils/constants';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Success: React.FC = () => {
     const router = useRouter();
+    useEffect(() => {
+        const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
+        if (sessionData) {
+            sessionStorage.removeItem(REGISTER_RESPONSE_SESSION);
+        }
+    }, [])
     return (
         <div className='container mx-auto pb-[60px]'>
             <div className='p-8 bg-white rounded-3xl'>
