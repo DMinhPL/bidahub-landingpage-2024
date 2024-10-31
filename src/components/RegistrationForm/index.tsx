@@ -247,8 +247,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, isEdit, i
                                     placeholder='Vui lòng chọn'
                                     options={[
                                         { label: 'Facebook', value: 'Facebook' },
-                                        { label: 'Zalo', value: 'Zalo' },
-                                        { label: 'Email', value: 'Email' },
+                                        { label: 'Referral', value: 'Referral' },
+                                        { label: 'Website', value: 'Website' },
                                     ]}
                                 />
                             </div>

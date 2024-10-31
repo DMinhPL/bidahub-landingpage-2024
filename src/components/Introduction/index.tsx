@@ -26,16 +26,13 @@ const Introduction: React.FC = () => {
         >
             <div className='max-w-[991px] mx-auto'>
                 <p className='text-lg font-medium'>
-                    Molinari Tournament 2024 với nội dung thi đấu Carom 3 băng là sân chơi
-                    chuyên nghiệp dành cho các cơ thủ tài năng và đam mê bida, nơi các vận
-                    động viên sẽ có cơ hội tranh tài, phô diễn kỹ năng đỉnh cao và thi đấu
-                    trong một môi trường chuyên nghiệp. Sự kiện không chỉ là cuộc thi đấu
-                    hấp dẫn, mà còn là dịp để kết nối cộng đồng yêu bida, thúc đẩy tinh
-                    thần thể thao và lan tỏa niềm đam mê với môn bida.
+                    Giải đấu Molinari HCMC 2024 với nội dung thi đấu Carom 3 băng là sân chơi chuyên nghiệp dành cho các cơ
+                    thủ tài năng và đam mê bida, nơi các vận động viên sẽ có cơ hội tranh tài, phô diễn kỹ năng đỉnh cao và
+                    thi đấu trong một môi trường chuyên nghiệp. Sự kiện không chỉ là cuộc thi đấu hấp dẫn, mà còn là dịp
+                    để kết nối cộng đồng yêu bida, thúc đẩy tinh thần thể thao và lan tỏa niềm đam mê với môn chơi tinh tế này.
                 </p>
                 <p className='text-lg font-medium mt-5'>
-                    Molinari Tournament 2024 hứa hẹn quy tụ các cơ thủ hàng đầu thế giới
-                    và Việt Nam, bao gồm những tên tuổi nổi bật như:
+                    Giải đấu năm nay hứa hẹn sẽ có sự góp mặt của những tên tuổi hàng đầu thế giới và Việt Nam.
                 </p>
                 <ul className='text-lg font-medium pl-6 mt-5 list-disc'>
                     <li>
@@ -46,11 +43,15 @@ const Introduction: React.FC = () => {
                         Trần Quyết Chiến - niềm tự hào của Việt Nam với ba lần đăng quang
                         tại World Cup Carom 3 băng do Liên đoàn Billiard Thế giới tổ chức.
                     </li>
+                    <li className='mt-4'>
+                        Bao Phương Vinh - cơ thủ trẻ Việt Nam đầu tiên vô địch thế giới ở nội dung carom 3 băng vào năm 2023.
+                    </li>
+                    <li className='mt-4'>
+                        Và nhiều cơ thủ xuất sắc đến từ mọi miền Tổ quốc Việt Nam.
+                    </li>
                 </ul>
                 <p className='text-lg font-medium mt-5'>
-                    Hãy sẵn sàng tham gia và chờ đón Molinari Tournament 2024 - sự kiện
-                    đỉnh cao nơi các cơ thủ tài ba tỏa sáng và tranh tài trong những trận
-                    đấu mãn nhãn!
+                    Hãy đăng ký tham gia và sẵn sàng chờ đón Giải đấu Molinari HCMC 2024 - sự kiện đỉnh cao nơi các cơ thủ tài ba tỏa sáng và tranh tài trong những trận đấu mãn nhãn!
                 </p>
             </div>
             <div className="slider mt-6 lg:mt-[60px]">
