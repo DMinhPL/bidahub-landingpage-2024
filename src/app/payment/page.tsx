@@ -32,7 +32,7 @@ const Payment = () => {
                 "userBankName": "NGUYEN CHI DUNG",
                 content: data.Phone,
                 qrType: 0,
-                amount: 1300000,
+                amount: 1300,
                 orderId: data.VietQRInfo.orderId,
                 transType: "C",
                 sign: "Molinari",
