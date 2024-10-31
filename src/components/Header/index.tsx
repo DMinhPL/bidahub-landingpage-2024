@@ -98,7 +98,6 @@ const Header: React.FC = () => {
     };
   }, []);
 
-
   return (
     <header className='o-header fixed z-50 top-6 left-0 right-0'>
       <div className='container mx-auto'>

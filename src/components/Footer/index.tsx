@@ -1,5 +1,6 @@
+'use client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import footerImg from '../../assets/images/logo-footer.png';
 
 const menus = [
@@ -20,12 +21,71 @@ const menus = [
     },
     {
         title: 'Thể thức thi đấu & Đăng ký',
-        target: '#rules-register',
+        target: '#register',
         id: 5,
     },
 ];
 
+const handleScrollToSection = (target: string) => {
+    if (target === '#home') {
+        // If target is #home, scroll to the very top of the page
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    } else {
+        const section = document.querySelector(target);
+        if (section) {
+            const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+            // Scroll to the section and add 50px offset
+            window.scrollTo({
+                top: sectionTop - 45, // Subtract 50px for the additional offset
+                behavior: 'smooth',
+            });
+        }
+    }
+};
+
 const Footer: React.FC = () => {
+    const [activeSection, setActiveSection] = useState<string | null>('home');
+
+    useEffect(() => {
+        const sections = document.querySelectorAll('section');
+
+        const handleScroll = () => {
+            let currentSection = '';
+            if (window.scrollY === 0) {
+                // If near the top, set home as the active section
+                setActiveSection('home');
+                return;
+            }
+
+            // Iterate through sections to find the active one based on scroll position
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 50; // Adjusted for offset
+                if (window.scrollY >= sectionTop && window.scrollY <= sectionTop + section.clientHeight) {
+                    currentSection = section.id;
+                }
+            });
+
+            // Set the active section if identified
+            if (currentSection) {
+                setActiveSection(currentSection);
+            }
+        };
+
+        // Attach the scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Run the function once on mount to detect the initial active section
+        handleScroll();
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <footer className='relative z-[2]'>
             <div className='container mx-auto pt-8 lg:pt-[60px]'>
@@ -39,7 +99,9 @@ const Footer: React.FC = () => {
                     <ul className='flex flex-col md:flex-row gap-4 md:gap-0 justify-between'>
                         {menus.map((menu, idx) => (
                             <li key={`item-${idx.toString()}`} className='font-bold'>
-                                <button className='lg:text-2xl text-white cursor-pointer font-normal base-transition hover:opacity-100 opacity-80'>
+                                <button className={`lg:text-2xl text-white cursor-pointer font-normal base-transition hover:opacity-100 ${activeSection === menu.target ? 'opacity-100' : 'opacity-80'}`}
+                                    onClick={() => handleScrollToSection(menu.target)}
+                                >
                                     {menu.title}
                                 </button>
                             </li>
