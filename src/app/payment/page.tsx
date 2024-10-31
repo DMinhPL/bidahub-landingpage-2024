@@ -41,7 +41,7 @@ const Payment = () => {
             if (token) {
                 const qrCode = await generateQrCodeService(params, token);
                 console.log({ qrCode });
-                setQrLink(qrCode.qrLink);
+                setQrLink(qrCode.qrCode);
             }
         } catch (error) {
             toast.error("Something was wrong, Please try again!");
