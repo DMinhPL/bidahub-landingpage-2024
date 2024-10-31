@@ -30,7 +30,7 @@ const Payment = () => {
                 "bankCode": "MB",
                 "bankAccount": "0775514403",
                 "userBankName": "NGUYEN CHI DUNG",
-                content: data.VietQRInfo.content,
+                content: data.Phone,
                 qrType: 0,
                 amount: 1300000,
                 orderId: data.VietQRInfo.orderId,
