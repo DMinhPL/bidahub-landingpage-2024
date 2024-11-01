@@ -1,6 +1,6 @@
 'use client';
 import { updateRegisterInfoService } from '@/api/register';
-import { QrCodeParams, RegisterResponseType } from '@/api/type';
+import { GenerateQrResponseType, QrCodeParams, RegisterResponseType } from '@/api/type';
 import { generateQrCodeService } from '@/api/vietqr';
 import Checkbox from '@/components/Checkbox';
 import EditPopup from '@/components/EditPopup';
@@ -19,10 +19,10 @@ const Payment = () => {
     const [confirmChecked, setConfirmChecked] = useState(false);
     const [registrationData, setRegistrationData] = useState<RegisterResponseType>();
     const [isLoading, setIsLoading] = useState(false);
+    const [qrResponseData, setQrResponseData] = useState<GenerateQrResponseType>();
     const [openEdit, setOpenEdit] = useState(false);
     const submitListener = useRef(0);
     const token = useAuthToken();
-    const [qrLink, setQrLink] = useState<string>();
 
     const getQrCode = async (data: RegisterResponseType, token: string) => {
         try {
@@ -32,16 +32,15 @@ const Payment = () => {
                 "userBankName": "NGUYEN CHI DUNG",
                 content: data.Phone,
                 qrType: 0,
-                amount: 1300,
+                amount: 5000,
                 orderId: data.VietQRInfo.orderId,
                 transType: "C",
                 sign: "Molinari",
                 urlLink: `${process.env.NEXT_HOST_URL}/success`
             }
             if (token) {
-                const qrCode = await generateQrCodeService(params, token);
-                console.log({ qrCode });
-                setQrLink(qrCode.qrCode);
+                const data = await generateQrCodeService(params, token);
+                setQrResponseData(data);
             }
         } catch (error) {
             toast.error("Something was wrong, Please try again!");
@@ -172,11 +171,11 @@ const Payment = () => {
                             <div className='min-w-[282px] flex justify-center items-center'>
                                 <div className="max-w-[218px] mx-auto">
                                     {
-                                        qrLink &&
+                                        qrResponseData?.qrCode &&
                                         <QRCode
                                             size={218}
                                             style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                                            value={qrLink}
+                                            value={qrResponseData?.qrCode}
                                             viewBox={`0 0 218 218`}
                                         />
                                     }
@@ -199,16 +198,16 @@ const Payment = () => {
                                 </div>
                                 <ul className='text-feldgrau mt-2'>
                                     <li>
-                                        <p>{registrationData?.VietQRInfo.bankName}</p>
+                                        <p>{qrResponseData?.bankName}</p>
                                     </li>
                                     <li>
-                                        <p>Số tài khoản: {registrationData?.VietQRInfo.bankAccount}</p>
+                                        <p>Số tài khoản: {qrResponseData?.bankAccount}</p>
                                     </li>
                                     <li>
-                                        <p>Chủ tài khoản: {registrationData?.VietQRInfo.userBankName}</p>
+                                        <p>Chủ tài khoản: {qrResponseData?.userBankName}</p>
                                     </li>
                                     <li>
-                                        <p>Nội dung thanh toán: {registrationData?.VietQRInfo.content} </p>
+                                        <p>Nội dung thanh toán: {qrResponseData?.content} </p>
                                         <p className='italic'>(Ví dụ: Tuan 0979437225 moli24)</p>
                                     </li>
                                 </ul>

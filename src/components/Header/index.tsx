@@ -99,7 +99,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className='o-header fixed z-50 top-6 left-0 right-0'>
+    <header className='o-header fixed z-10 top-6 left-0 right-0'>
       <div className='container mx-auto'>
         <div className='o-header__wrapper bg-white px-4 py-4 lg:py-[22px] xl:h-[80px] rounded-2xl shadow-sm flex items-center justify-between'>
           {/* Logo  */}

@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
                     <div className="left mt-8 md:mt-0">
                         <p className='text-md text-white font-normal opacity-50'>Mạng xã hội</p>
                         <div className="flex justify-between min-w-[289px]">
-                            <a className='text-white font-normal block mt-4' href="/">Facebook</a>
+                            <a className='text-white font-normal block mt-4' href="https://www.facebook.com/profile.php?id=61567087604562&mibextid=LQQJ4d">Facebook</a>
                             <a className='text-white font-normal block mt-4' href="/">Instagram</a>
                             <a className='text-white font-normal block mt-4' href="/">Youtube</a>
                         </div>

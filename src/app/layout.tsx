@@ -36,10 +36,10 @@ export default function RootLayout({
             <div className="relative z-[2]">
               {children}
             </div>
-            <ToastContainer />
           </main>
           <Footer />
         </div>
+        <ToastContainer style={{ zIndex: 100 }} />
       </body>
     </html>
   );

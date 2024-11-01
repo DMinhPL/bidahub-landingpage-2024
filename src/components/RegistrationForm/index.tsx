@@ -39,7 +39,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, isEdit, i
         setValue
     } = useForm<FormValues>({
         mode: 'onSubmit',
-        resolver: yupResolver(registerSchema),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        resolver: yupResolver(registerSchema as any),
         defaultValues: {
             FullName: '',
             CCCD: '',
@@ -106,6 +107,42 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, isEdit, i
                             </div>
                         )}
                     />
+                    {
+                        isEdit && (
+                            <Controller
+                                name='Gender'
+                                control={control}
+                                render={({ field }) => (
+                                    <div className='form-input border-none p-0'>
+                                        <label
+                                            className='font-semibold mb-2 block'
+                                            htmlFor='Gender'
+                                        >
+                                            Giới tính
+                                        </label>
+                                        <div className='flex gap-4 items-center'>
+                                            <Radio
+                                                label='Nam'
+                                                id='male'
+                                                name='Gender'
+                                                value='male'
+                                                checked={field.value === 'male'}
+                                                onChange={(e) => field.onChange(e.target.value)}
+                                            />
+                                            <Radio
+                                                label='Nữ'
+                                                id='female'
+                                                name='Gender'
+                                                value='female'
+                                                checked={field.value === 'female'}
+                                                onChange={(e) => field.onChange(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                            />
+                        )
+                    }
                     <Controller
                         name='CCCD'
                         control={control}
@@ -231,61 +268,66 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, isEdit, i
                             </div>
                         )}
                     />
-                    <Controller
-                        name='ReferralSource'
-                        control={control}
-                        render={({ field }) => (
-                            <div className='form-input border-none p-0'>
-                                <label
-                                    className='font-semibold mb-2 block'
-                                    htmlFor='ReferralSource'
-                                >
-                                    Bạn biết đến giải đấu từ đâu
-                                </label>
-                                <Pulldown
-                                    {...field}
-                                    placeholder='Vui lòng chọn'
-                                    options={[
-                                        { label: 'Facebook', value: 'Facebook' },
-                                        { label: 'Bạn bè', value: 'Friend' },
-                                        { label: 'Website', value: 'Website' },
-                                    ]}
-                                />
-                            </div>
-                        )}
-                    />
-                    <Controller
-                        name='Gender'
-                        control={control}
-                        render={({ field }) => (
-                            <div className='form-input border-none p-0'>
-                                <label
-                                    className='font-semibold mb-2 block'
-                                    htmlFor='Gender'
-                                >
-                                    Giới tính
-                                </label>
-                                <div className='flex gap-4 items-center'>
-                                    <Radio
-                                        label='Nam'
-                                        id='male'
-                                        name='Gender'
-                                        value='male'
-                                        checked={field.value === 'male'}
-                                        onChange={(e) => field.onChange(e.target.value)}
-                                    />
-                                    <Radio
-                                        label='Nữ'
-                                        id='female'
-                                        name='Gender'
-                                        value='female'
-                                        checked={field.value === 'female'}
-                                        onChange={(e) => field.onChange(e.target.value)}
+                    {
+                        !isEdit &&
+                        <Controller
+                            name='ReferralSource'
+                            control={control}
+                            render={({ field }) => (
+                                <div className='form-input border-none p-0'>
+                                    <label
+                                        className='font-semibold mb-2 block'
+                                        htmlFor='ReferralSource'
+                                    >
+                                        Bạn biết đến giải đấu từ đâu
+                                    </label>
+                                    <Pulldown
+                                        {...field}
+                                        placeholder='Vui lòng chọn'
+                                        options={[
+                                            { label: 'Facebook', value: 'Facebook' },
+                                            { label: 'Bạn bè', value: 'Friend' },
+                                            { label: 'Website', value: 'Website' },
+                                        ]}
                                     />
                                 </div>
-                            </div>
-                        )}
-                    />
+                            )}
+                        />
+                    }
+                    {
+                        !isEdit && <Controller
+                            name='Gender'
+                            control={control}
+                            render={({ field }) => (
+                                <div className='form-input border-none p-0'>
+                                    <label
+                                        className='font-semibold mb-2 block'
+                                        htmlFor='Gender'
+                                    >
+                                        Giới tính
+                                    </label>
+                                    <div className='flex gap-4 items-center'>
+                                        <Radio
+                                            label='Nam'
+                                            id='male'
+                                            name='Gender'
+                                            value='male'
+                                            checked={field.value === 'male'}
+                                            onChange={(e) => field.onChange(e.target.value)}
+                                        />
+                                        <Radio
+                                            label='Nữ'
+                                            id='female'
+                                            name='Gender'
+                                            value='female'
+                                            checked={field.value === 'female'}
+                                            onChange={(e) => field.onChange(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                            )}
+                        />
+                    }
                     <Controller
                         name='Club'
                         control={control}

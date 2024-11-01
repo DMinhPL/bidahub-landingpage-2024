@@ -18,8 +18,7 @@ const Info: React.FC = () => {
                 </li>
             </ul>
             <p className='text-lg font-semibold mt-4'>
-                Đấu theo từng vòng loại , bốc thăm ngẫu nhiên (Bốc thăm thi đấu dự
-                kiến vào ngày 06/12/2024)
+                Đấu theo từng vòng loại , bốc thăm ngẫu nhiên (Bốc thăm thi đấu dự kiến vào ngày 09/12/2024 - Thông tin trận đấu sẽ được đăng trên <a href="https://www.facebook.com/profile.php?id=61567087604562&mibextid=LQQJ4d" className='font-semibold text-ua-blue' target="_blank">Facebook Molinari HCMC 2024</a> )
             </p>
             {/* ====== */}
             <p className='font-medium mt-4'>Cách tính điểm</p>

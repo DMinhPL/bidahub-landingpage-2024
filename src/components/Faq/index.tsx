@@ -13,23 +13,48 @@ const FAQComponent: React.FC = () => {
     // Sample FAQ data
     const faqData: FAQItem[] = [
         {
-            question: 'Nếu không tham gia nữa, tôi có được hoàn tiền không?',
+            question: 'Tôi có thể hủy đăng ký và nhận lại phí không?',
             date: 'Thứ 3, 23/08/2024',
-            answer: `Các VDV đăng nhập vào BidaHub và đăng ký tham gia giải đấu thông qua landing page (trang web dành cho đăng ký giải đấu) được liên kết với Zalo, App, hoặc Website trực tuyến. Ban tổ chức gửi email xác nhận đăng ký bao gồm mã số tham dự (hoặc QR code), thời gian địa điểm check in, các yêu cầu chuẩn bị (trang thiết bị thi đấu, quần áo). Email sẽ gửi kèm tài liệu hướng dẫn check in, luật thi đấu, quy tắc giải đấu.`,
+            answer: `Giải đấu không chấp nhận hủy và hoàn phí sau khi đã đăng ký và thanh toán. Nếu không thể tham gia thi đấu, bạn vẫn có thể đến xác nhận có mặt (check-in) trong thời gian tổ chức giải để nhận quà từ ban tổ chức.`,
         },
         {
-            question: 'Các hình thức thanh toán là gì?',
-            answer: 'Thanh toán qua thẻ ngân hàng, ví điện tử, hoặc tiền mặt tại địa điểm tổ chức.',
+            question: 'Lệ phí đăng ký là bao nhiêu và phương thức thanh toán như thế nào?',
+            answer: 'Lệ phí đăng ký là 1.300.000 VND. Bạn có thể thanh toán trực tuyến bằng cách quét mã QR hoặc chuyển khoản trực tiếp qua tài khoản ngân hàng. Thông tin tài khoản sẽ được hiển thị ở trang đăng ký. Kết quả đăng ký và thanh toán sẽ được gửi qua tin nhắn Zalo khi ban tổ chức xác nhận bạn đã thanh toán thành công.',
             date: 'Thứ 3, 23/08/2024',
         },
         {
             question: 'Cách thức đăng ký giải đấu?',
-            answer: 'Đăng ký giải đấu qua landing page của BidaHub hoặc qua các ứng dụng liên kết như Zalo, App.',
+            answer: 'Bạn có thể đăng ký trực tuyến qua liên kết đăng ký của chúng tôi và điền đầy đủ thông tin yêu cầu. Sau khi hoàn tất, bạn sẽ nhận được tin nhắn Zalo xác nhận đăng ký thành công và hướng dẫn chi tiết về quy trình tiếp theo. Lưu ý: Vui lòng sử dụng số điện thoại đã đăng ký Zalo khi đăng ký tham gia để đảm bảo bạn nhận được tin nhắn từ Ban tổ chức một cách nhanh chóng và thuận tiện.',
             date: 'Thứ 3, 23/08/2024',
         },
         {
-            question: 'Độ tuổi tham gia giải đấu là bao nhiêu?',
-            answer: 'Người tham gia phải từ 18 tuổi trở lên.',
+            question: 'Tôi cần mang theo những gì khi đến tham gia?',
+            answer: 'Vui lòng mang theo chứng minh thư/hộ chiếu (đã dùng đăng ký tham dự giải đấu), trang phục và dụng cụ thi đấu cần thiết, và bất kỳ vật dụng cá nhân nào bạn cần cho giải đấu.',
+            date: 'Thứ 3, 23/08/2024',
+        },
+        {
+            question: 'Có quy định nào về trang phục không?',
+            answer: 'Có, chúng tôi yêu cầu các vận động viên mặc trang phục thể thao phù hợp và theo quy định của giải đấu. Trang phục thi đấu: <ul><li>Quần tây hoặc kaki dài tối màu (Không được mặc quần Jean).</li><li>Mang giày.</li><li>Áo thun có cổ ( không mặc áo sọc ngang và caro).</li></ul>',
+            date: 'Thứ 3, 23/08/2024',
+        },
+        {
+            question: 'Giải đấu sẽ diễn ra ở đâu và lịch thi đấu như thế nào?',
+            answer: 'Lịch thi đấu chính thức đã được công bố như trên trang đăng ký. Ngoài ra thông tin lịch thi đấu cụ thể và thông báo sẽ được cập nhật trên trang facebook <a style="font-weight: bold" href="https://www.facebook.com/profile.php?id=61567087604562&mibextid=LQQJ4d" target="_blank">Molinari HCMC 2024</a> của giải đấu. Hãy like và theo dõi facebook để cập nhật tin tức mới nhất.',
+            date: 'Thứ 3, 23/08/2024',
+        },
+        {
+            question: 'Có thể thay đổi thông tin đăng ký sau khi đã đăng ký không?',
+            answer: 'Sau khi đã đăng ký, bạn có thể thay đổi một số thông tin trước ngày 06/12/2024 bằng cách liên hệ ban tổ chức. </br> Sau thời gian này, thông tin sẽ được cố định để phục vụ công tác chuẩn bị giải đấu.',
+            date: 'Thứ 3, 23/08/2024',
+        },
+        {
+            question: 'Tôi có thể xem kết quả thi đấu ở đâu?',
+            answer: 'Kết quả thi đấu sẽ được cập nhật trên trang facebook <a style="font-weight: bold" href="https://www.facebook.com/profile.php?id=61567087604562&mibextid=LQQJ4d" target="_blank">Molinari HCMC 2024</a> của giải đấu. </br> Hãy bấm like và theo dõi facebook để cập nhật.',
+            date: 'Thứ 3, 23/08/2024',
+        },
+        {
+            question: 'Điểm thưởng trên giải thưởng là gì? Có thể quy đổi thành tiền mặt?',
+            answer: 'Điểm thưởng này là đơn vị hỗ trợ thanh toán được dùng riêng biệt trên hệ thống của BidaHub. </br>Mỗi 1 đơn vị điểm thưởng có giá trị hỗ trợ thanh toán tương đương 1 VND (1 điểm = 1 VND) và có thể sử dụng cho </br>các giao dịch mua sắm trên hệ thống của BidaHub (bao gồm website bidahub.com và Zalo Mini App). </br>Điểm thưởng không thể chuyển nhượng hoặc quy đổi thành tiền mặt.',
             date: 'Thứ 3, 23/08/2024',
         },
     ];
@@ -64,8 +89,7 @@ const FAQComponent: React.FC = () => {
 
                         </button>
                         {openIndex === index && (
-                            <div className="text-md md:text-base pt-6 md:pt-10">
-                                {faq.answer}
+                            <div className="text-md md:text-base pt-6 md:pt-10" dangerouslySetInnerHTML={{ __html: faq.answer }}>
                             </div>
                         )}
                     </div>

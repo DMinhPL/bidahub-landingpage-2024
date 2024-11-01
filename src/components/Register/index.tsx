@@ -32,7 +32,8 @@ const Register: React.FC = () => {
         reset,
     } = useForm<FormValues>({
         mode: 'onSubmit',
-        resolver: yupResolver(registerSchema),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        resolver: yupResolver(registerSchema as any),
         defaultValues: {
             FullName: '',
             CCCD: '',
@@ -68,8 +69,9 @@ const Register: React.FC = () => {
             // Navigate using window.location.assign
             window.location.assign(`/payment`);
 
-        } catch {
-            toast.error("Something was wrong, Please try again!");
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
+            toast.error(error.message);
         } finally {
             setIsLoading(false);
         }
