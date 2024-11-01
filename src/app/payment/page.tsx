@@ -2,7 +2,6 @@
 import { updateRegisterInfoService } from '@/api/register';
 import { GenerateQrResponseType, QrCodeParams, RegisterResponseType } from '@/api/type';
 import { generateQrCodeService } from '@/api/vietqr';
-import Checkbox from '@/components/Checkbox';
 import EditPopup from '@/components/EditPopup';
 import { FormValues } from '@/components/RegistrationForm';
 import useAuthToken from '@/hooks/useAuthToken';
@@ -16,7 +15,6 @@ import { toast } from 'react-toastify';
 
 const Payment = () => {
     const router = useRouter();
-    const [confirmChecked, setConfirmChecked] = useState(false);
     const [registrationData, setRegistrationData] = useState<RegisterResponseType>();
     const [isLoading, setIsLoading] = useState(false);
     const [qrResponseData, setQrResponseData] = useState<GenerateQrResponseType>();
@@ -219,18 +217,18 @@ const Payment = () => {
                     </div>
                 </div>
                 <div className='submit mt-6 flex flex-col justify-center items-center'>
-                    <Checkbox
+                    {/* <Checkbox
                         checked={confirmChecked}
                         onChange={() => setConfirmChecked(!confirmChecked)}
                         label={`
                         <p class='text-feldgrau'>Tôi đã đọc và đồng ý với <a href="https://moli24.com" class='font-medium text-blue-ryb' target="_blank">Điều lệ của giải đấu</a></p>
                         `}
-                    />
+                    /> */}
 
-                    <button disabled={!confirmChecked}
+                    <button
                         onClick={onPayment}
                         className={
-                            `${confirmChecked ? 'hover:text-neon-fuchsia hover:bg-white' : 'cursor-not-allowed bg-opacity-40'} h-[60px] mt-4 rounded-lg bg-neon-fuchsia border border-neon-fuchsia text-white capitalize text-lg p-[18px] min-w-[240px] base-transition flex justify-center items-center`
+                            `hover:text-neon-fuchsia hover:bg-white h-[60px] mt-4 rounded-lg bg-neon-fuchsia border border-neon-fuchsia text-white capitalize text-lg p-[18px] min-w-[240px] base-transition flex justify-center items-center`
                         }>
                         Thanh toán
                     </button>
