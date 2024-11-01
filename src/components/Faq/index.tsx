@@ -24,7 +24,7 @@ const FAQComponent: React.FC = () => {
         },
         {
             question: 'Cách thức đăng ký giải đấu?',
-            answer: 'Bạn có thể đăng ký trực tuyến qua liên kết đăng ký của chúng tôi và điền đầy đủ thông tin yêu cầu. Sau khi hoàn tất, bạn sẽ nhận được tin nhắn Zalo xác nhận đăng ký thành công và hướng dẫn chi tiết về quy trình tiếp theo. Lưu ý: Vui lòng sử dụng số điện thoại đã đăng ký Zalo khi đăng ký tham gia để đảm bảo bạn nhận được tin nhắn từ Ban tổ chức một cách nhanh chóng và thuận tiện.',
+            answer: 'Bạn có thể đăng ký trực tuyến qua liên kết đăng ký của chúng tôi và điền đầy đủ thông tin yêu cầu. Sau khi hoàn tất, bạn sẽ nhận được tin nhắn Zalo xác nhận đăng ký thành công và hướng dẫn chi tiết về quy trình tiếp theo. </br><b> Lưu ý:</b> Vui lòng sử dụng số điện thoại đã đăng ký Zalo khi đăng ký tham gia để đảm bảo bạn nhận được tin nhắn từ Ban tổ chức một cách nhanh chóng và thuận tiện.',
             date: 'Thứ 3, 23/08/2024',
         },
         {
