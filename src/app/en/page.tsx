@@ -17,7 +17,7 @@ export default function HomeEng() {
       <Introduction lang='en' />
       <Agenda lang='en' />
       <Prizes lang='en' />
-      <Register />
+      <Register lang='en' />
       <Faq />
       <Partners />
     </>

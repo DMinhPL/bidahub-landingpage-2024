@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Info: React.FC = () => {
+const Info: React.FC<{
+  lang?: string
+}> = ({
+  lang = '',
+}) => {
+    console.log("🚀 ~ lang:", lang)
     return (
         <div className='info pb-6 border-b border-gainsboro'>
             <h3 className='font-svnDay text-2xl lg:text-3xl text-ua-blue'>
@@ -51,7 +56,6 @@ const Info: React.FC = () => {
                 </li>
                 <li className='text-raisin-black'>
                     Mang giày.
-
                 </li>
                 <li>
                     Áo thun có cổ ( không mặc áo sọc ngang và caro).
@@ -60,6 +64,6 @@ const Info: React.FC = () => {
             <p className='mt-4 text-lg font-semibold uppercase'>BAN TỔ CHỨC SẼ CÓ THÔNG BÁO SỚM NHẤT TRONG TRƯỜNG HỢP CÓ ĐIỀU CHỈNH HAY THAY ĐỔI XẢY RA.</p>
         </div>
     );
-};
+  };
 
 export default Info;
