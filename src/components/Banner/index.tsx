@@ -7,7 +7,14 @@ import bgLines from '../../assets/images/bgLine.png';
 import bgLinesMobile from '../../assets/images/bgLine-mobile.png';
 import Image from 'next/image';
 
-const Banner: React.FC = () => {
+interface Props {
+    lang?: string;
+}
+
+const Banner: React.FC<Props> = ({
+    lang = ''
+}) => {
+    const address = lang === 'en' ? 'Rach Mieu Sports Complex - 1 Hoa Phuong Street, Ward 2, Phu Nhuan District, Ho Chi Minh City' : 'Nhà thi đấu rạch miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh'
     return (
         <div className='banner'>
             <div className='container mx-auto'>
@@ -38,7 +45,7 @@ const Banner: React.FC = () => {
                             <Image src={bgTextImg} alt="text img" className='absolute top-0 left-0 w-full h-full z-[1] hidden xl:block' />
                             <Image src={bgTextMobileImg} alt="text img" className='absolute top-0 h-full left-0 w-full z-[1] block xl:hidden' />
                             <div className='relative z-10 font-svnDay'>
-                                <h3 className='text-lg lg:text-2xl font-bold text-center uppercase'>Nhà thi đấu rạch miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh</h3>
+                                <h3 className='text-lg lg:text-2xl font-bold text-center uppercase'>{address}</h3>
                                 <p className='text-lg lg:text-2xl mt-2 font-bold text-center uppercase'>11/12/2024 - 16/12/2024</p>
                             </div>
                         </div>

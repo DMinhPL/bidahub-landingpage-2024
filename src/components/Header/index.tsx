@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState, useMemo } from 'react';
 import bgMenuMobile from '../../assets/images/bg-menu-mobile.png';
 import burgerIcon from '../../assets/images/ic-burger.png';
 import closeMenuIcon from '../../assets/images/ic-close-menu.png';
@@ -9,33 +10,6 @@ import whiteLogoImg from '../../assets/images/white-logo.png';
 import LanguageSwitcher from '../LanguageSwicher';
 import Link from 'next/link';
 import icFacebook from '../../assets/images/ic-facebook.png';
-const headerMenu = [
-  {
-    title: 'Trang chủ',
-    target: '#home',
-    id: 1,
-  },
-  {
-    title: 'Giới thiệu',
-    target: '#introduction',
-    id: 2,
-  },
-  {
-    title: 'Lịch trình sự kiện',
-    target: '#schedule',
-    id: 3,
-  },
-  {
-    title: 'Giải thưởng',
-    target: '#awards',
-    id: 4,
-  },
-  {
-    title: 'Thể thức thi đấu & Đăng ký',
-    target: '#register',
-    id: 5,
-  },
-];
 
 const handleScrollToSection = (target: string) => {
   if (target === '#home') {
@@ -58,8 +32,38 @@ const handleScrollToSection = (target: string) => {
 };
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+  const lang = pathname.split('/')[1];
   const [openMenu, setOpenMenu] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>('home');
+
+  const headerMenu = useMemo(() => [
+    {
+      title: lang === 'en' ? 'Home' : 'Trang chủ',
+      target: '#home',
+      id: 1,
+    },
+    {
+      title: lang === 'en' ? 'About us' : 'Giới thiệu',
+      target: '#introduction',
+      id: 2,
+    },
+    {
+      title: lang === 'en' ? 'Event' : 'Lịch trình sự kiện',
+      target: '#schedule',
+      id: 3,
+    },
+    {
+      title: lang === 'en' ? 'Prizes' : 'Giải thưởng',
+      target: '#awards',
+      id: 4,
+    },
+    {
+      title: lang === 'en' ? 'Registration' : 'Thể thức thi đấu & Đăng ký',
+      target: '#register',
+      id: 5,
+    },
+  ], [lang]);
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
@@ -137,7 +141,7 @@ const Header: React.FC = () => {
                 <Image src={icFacebook.src} alt="Picture of the author" className='w-6 h-6 md:w-8 md:h-8' width={32} height={32} />
               </a>
             </div>
-            <LanguageSwitcher />
+            <LanguageSwitcher lang={lang || 'vn'} />
             <div className='burger w-11 h-11 items-center justify-center flex xl:hidden'>
               <button onClick={() => setOpenMenu(true)}>
                 <Image
