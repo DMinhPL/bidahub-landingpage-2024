@@ -1,8 +1,8 @@
 import { GenerateQrResponseType, GenerateTokenResponseType, QrCodeParams } from "./type";
 
 export const getTokenService = async (): Promise<GenerateTokenResponseType> => {
-    const username = 'customer-bidahub-user24175';
-    const password = 'Y3VzdG9tZXItYmlkYWh1Yi11c2VyMjQxNzU=';
+    const username = 'customer-vso20898bidahub-user24177';
+    const password = 'Y3VzdG9tZXItdnNvMjA4OThiaWRhaHViLXVzZXIyNDE3Nw==';
     const credentials = btoa(`${username}:${password}`);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_VIET_QR_API_URL}/api/token_generate`, {
