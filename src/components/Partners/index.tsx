@@ -20,9 +20,13 @@ const logoList = [
     vectorLogo,
 ];
 
-const Partners: React.FC = () => {
+const Partners: React.FC<{
+    lang?: string
+}> = ({
+    lang = '',
+}) => {
     return (
-        <Section title='Đối tác & Nhà tài trợ' className='partners' id='partners'>
+        <Section title={lang === 'en' ? 'Partner & Sponsor' : 'Đối tác & Nhà tài trợ'} className='partners' id='partners'>
             <div className='logo-list flex flex-wrap justify-center lg:gap-4'>
                 {logoList.map((logo, idx) => (
                     <div
