@@ -16,7 +16,7 @@ export default function HomeEng() {
       <CountdownClient lang='en' />
       <Introduction lang='en' />
       <Agenda lang='en' />
-      <Prizes />
+      <Prizes lang='en' />
       <Register />
       <Faq />
       <Partners />
