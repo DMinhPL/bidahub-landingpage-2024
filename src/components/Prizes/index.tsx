@@ -5,7 +5,7 @@ const Prizes: React.FC = () => {
     const data = [
         {
             title: '1 Giải Nhất',
-            totalPrize: '182',
+            totalPrize: '200',
             currency: 'Triệu đồng',
             details: [
                 'Tiền mặt',
@@ -16,7 +16,7 @@ const Prizes: React.FC = () => {
         },
         {
             title: '1 Giải Nhì',
-            totalPrize: '112',
+            totalPrize: '100',
             currency: 'Triệu đồng',
             details: [
                 'Tiền mặt',
@@ -27,48 +27,47 @@ const Prizes: React.FC = () => {
         },
         {
             title: '2 Giải Ba',
-            totalPrize: '62',
+            totalPrize: '50',
             currency: 'Triệu đồng',
             details: [
                 'Tiền mặt',
                 '1 Kuro CMI 3',
                 '1 Túi cơ Molinari 2x4 cứng',
-                'Điểm thưởng: 10.000.000 điểm (tương ứng với 10 triệu đồng)',
             ],
         },
-        {
-            title: '4 Giải vòng loại 8',
-            totalPrize: '45',
-            currency: 'Triệu đồng',
-            details: [
-                'Điểm thưởng: 13.000.000 điểm (tương ứng với 13 triệu)',
-                '1 Kuro CMI 2',
-            ],
-        },
-        {
-            title: '8 Giải vòng loại 16',
-            totalPrize: '29,2',
-            currency: 'Triệu đồng',
-            details: [
-                'Điểm thưởng: 5.200.000 điểm (tương ứng với 5,2 triệu)',
-                '1 Kuro CMI 1',
-            ],
-        },
-        {
-            title: '16 Giải vòng loại 32',
-            totalPrize: '12,2',
-            currency: 'Triệu đồng',
-            details: [
-                'Điểm thưởng: 5.200.000 điểm (tương ứng với 5,2 triệu)',
-                '1 Ngọn Molinari',
-            ],
-        },
-        {
-            title: '32 Giải vòng loại 64',
-            totalPrize: '5,2',
-            currency: 'Triệu đồng',
-            details: ['Điểm thưởng: 5.200.000 điểm (tương ứng với 5,2 triệu)'],
-        },
+        // {
+        //     title: '4 Giải vòng loại 8',
+        //     totalPrize: '45',
+        //     currency: 'Triệu đồng',
+        //     details: [
+        //         'Điểm thưởng: 13.000.000 điểm (tương ứng với 13 triệu)',
+        //         '1 Kuro CMI 2',
+        //     ],
+        // },
+        // {
+        //     title: '8 Giải vòng loại 16',
+        //     totalPrize: '29,2',
+        //     currency: 'Triệu đồng',
+        //     details: [
+        //         'Điểm thưởng: 5.200.000 điểm (tương ứng với 5,2 triệu)',
+        //         '1 Kuro CMI 1',
+        //     ],
+        // },
+        // {
+        //     title: '16 Giải vòng loại 32',
+        //     totalPrize: '12,2',
+        //     currency: 'Triệu đồng',
+        //     details: [
+        //         'Điểm thưởng: 5.200.000 điểm (tương ứng với 5,2 triệu)',
+        //         '1 Ngọn Molinari',
+        //     ],
+        // },
+        // {
+        //     title: '32 Giải vòng loại 64',
+        //     totalPrize: '5,2',
+        //     currency: 'Triệu đồng',
+        //     details: ['Điểm thưởng: 5.200.000 điểm (tương ứng với 5,2 triệu)'],
+        // },
     ];
 
     return (
@@ -121,10 +120,10 @@ const Prizes: React.FC = () => {
                 ))}
             </div>
             <div className='panel font-svnDay text-2xl lg:text-[36px] bg-inchworm text-raisin-black rounded-3xl lg:p-6 py-6 px-4 text-center w-full mt-2'>
-                Giải phụ
+                Và nhiều giải phụ hấp dẫn khác
             </div>
             {/* 2 Giải seri cao nhất  */}
-            <div
+            {/* <div
                 className={`relative lg:min-h-[420px] h-full p-6 bg-navy text-white rounded-3xl flex flex-col mt-2`}
             >
                 <div className='top border-b border-[#1a2483] pb-4'>
@@ -149,18 +148,17 @@ const Prizes: React.FC = () => {
                         <li className='leading-[2]'>1 Túi cơ Molinari 2x4 cứng</li>
                     </ul>
                 </div>
-            </div>
+            </div> */}
             <div className='mt-4 italic text-md md:text-base'>
                 <p>
-                    Lưu ý: Điểm thưởng này là đơn vị hỗ trợ thanh toán được dùng riêng
-                    biệt trên hệ thống của BidaHub.
+                    * Tất cả các giải thưởng trên đã bao gồm thuế VAT
                 </p>
-                <p>
+                {/* <p>
                     Mỗi 1 đơn vị điểm thưởng có giá trị hỗ trợ thanh toán tương đương 1
                     VND (1 điểm = 1 VND), áp dụng cho các giao dịch mua sắm trên hệ thống
                     của BidaHub (bao gồm website bidahub.com và Zalo Mini App)
                 </p>
-                <p>Điểm này không thể chuyển nhượng hoặc quy đổi thành tiền mặt.</p>
+                <p>Điểm này không thể chuyển nhượng hoặc quy đổi thành tiền mặt.</p> */}
             </div>
         </Section >
     );

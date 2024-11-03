@@ -7,9 +7,10 @@ interface Props {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     onSubmit: (data: FormValues) => void;
     isLoading?: boolean;
+    error?: string;
 }
 
-const EditPopup: React.FC<Props> = ({ open, setOpen, onSubmit, isLoading }) => {
+const EditPopup: React.FC<Props> = ({ open, setOpen, onSubmit, error, isLoading }) => {
     return (
         <CustomModal
             isHideCloseBtn
@@ -18,7 +19,7 @@ const EditPopup: React.FC<Props> = ({ open, setOpen, onSubmit, isLoading }) => {
             onRequestClose={() => setOpen(false)}
             className='max-w-[888px]'
         >
-            <RegistrationForm isEdit onSubmit={onSubmit} isLoading={isLoading} />
+            <RegistrationForm isEdit onSubmit={onSubmit} isLoading={isLoading} error={error} />
         </CustomModal>
     );
 };

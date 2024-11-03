@@ -8,7 +8,7 @@ import logoImg from '../../assets/images/Logo.png';
 import whiteLogoImg from '../../assets/images/white-logo.png';
 import LanguageSwitcher from '../LanguageSwicher';
 import Link from 'next/link';
-
+import icFacebook from '../../assets/images/ic-facebook.png';
 const headerMenu = [
   {
     title: 'Trang chủ',
@@ -130,10 +130,13 @@ const Header: React.FC = () => {
             </ul>
           </nav>
           {/* Language  */}
-          <div className='flex items-center gap-6'>
-            <button className='button-base-style h-12 bg-mindaro text-persian-blue font-bold px-2 2xl:px-6 xl:py-3 rounded-[46px] min-w-32 uppercase hidden xl:block'>
-              liên hệ
-            </button>
+          <div className='flex items-center gap-2 2xl:gap-6'>
+            <p className='text-international-klein-blue hidden md:block'>Hotline: <a className='text-ua-blue font-semibold' href="tel:0949969969">0949 969 969</a></p>
+            <div className="facebook ">
+              <a href="https://www.facebook.com/molinari.carom3c.hcmc/" target="_blank">
+                <Image src={icFacebook.src} alt="Picture of the author" className='w-6 h-6 md:w-8 md:h-8' width={32} height={32} />
+              </a>
+            </div>
             <LanguageSwitcher />
             <div className='burger w-11 h-11 items-center justify-center flex xl:hidden'>
               <button onClick={() => setOpenMenu(true)}>

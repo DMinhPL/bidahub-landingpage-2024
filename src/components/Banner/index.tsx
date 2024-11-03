@@ -29,6 +29,11 @@ const Banner: React.FC = () => {
                             className='block xl:hidden'
                             placeholder="blur" // Optional blur-up while loading
                         />
+                        <div className="heading mt-6 max-w-[830px] mx-auto">
+                            <h1 className='font-svnDay text-2xl lg:text-[30px] text-center uppercase'>Giải Billiards Carom 3C
+                                Molinari Mở Rộng
+                                TP Hồ Chí Minh 2024</h1>
+                        </div>
                         <div className='px-6 py-4 lg:py-6 text-white mt-12 relative overflow-hidden'>
                             <Image src={bgTextImg} alt="text img" className='absolute top-0 left-0 w-full h-full z-[1] hidden xl:block' />
                             <Image src={bgTextMobileImg} alt="text img" className='absolute top-0 h-full left-0 w-full z-[1] block xl:hidden' />

@@ -26,7 +26,7 @@ const Introduction: React.FC = () => {
         >
             <div className='max-w-[991px] mx-auto'>
                 <p className='text-lg font-medium'>
-                    Giải đấu Molinari HCMC 2024 với nội dung thi đấu Carom 3 băng là sân chơi chuyên nghiệp dành cho các cơ
+                    Giải Billiards Carom 3C Molinari Mở Rộng TP Hồ Chí Minh 2024 với nội dung thi đấu Carom 3 băng là sân chơi chuyên nghiệp dành cho các cơ
                     thủ tài năng và đam mê bida, nơi các vận động viên sẽ có cơ hội tranh tài, phô diễn kỹ năng đỉnh cao và
                     thi đấu trong một môi trường chuyên nghiệp. Sự kiện không chỉ là cuộc thi đấu hấp dẫn, mà còn là dịp
                     để kết nối cộng đồng yêu bida, thúc đẩy tinh thần thể thao và lan tỏa niềm đam mê với môn chơi tinh tế này.
@@ -51,7 +51,7 @@ const Introduction: React.FC = () => {
                     </li>
                 </ul>
                 <p className='text-lg font-medium mt-5'>
-                    Hãy đăng ký tham gia và sẵn sàng chờ đón Giải đấu Molinari HCMC 2024 - sự kiện đỉnh cao nơi các cơ thủ tài ba tỏa sáng và tranh tài trong những trận đấu mãn nhãn!
+                    Hãy đăng ký tham gia và sẵn sàng chờ đón Giải Billiards Carom 3C Molinari Mở Rộng TP Hồ Chí Minh 2024 - sự kiện đỉnh cao nơi các cơ thủ tài ba tỏa sáng và tranh tài trong những trận đấu mãn nhãn!
                 </p>
             </div>
             <div className="slider mt-6 lg:mt-[60px]">

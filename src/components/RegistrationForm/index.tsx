@@ -26,9 +26,10 @@ type RegistrationFormProps = {
     onSubmit: (data: FormValues) => void;
     isEdit?: boolean;
     isLoading?: boolean;
+    error?: string;
 };
 
-const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, isEdit, isLoading }) => {
+const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, isEdit, isLoading }) => {
     const [isDateFocused, setIsDateFocused] = useState(false);
 
     const {
@@ -57,7 +58,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, isEdit, i
 
     const handleFormSubmit = (data: FormValues) => {
         onSubmit(data);
-        reset();
     };
 
     useEffect(() => {
@@ -184,7 +184,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, isEdit, i
                                     id='Phone'
                                     name='Phone'
                                     placeholder='Nhập số điện thoại'
-                                    error={errors.Phone?.message}
+                                    error={error || errors.Phone?.message}
                                 />
                             </div>
                         )}

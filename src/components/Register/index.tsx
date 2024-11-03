@@ -5,7 +5,6 @@ import { REGISTER_RESPONSE_SESSION } from '@/utils/constants';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading';
 import RegistrationForm from '../RegistrationForm';
@@ -27,9 +26,9 @@ export type FormValues = {
 
 const Register: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
+    const [inputError, setInputError] = useState('');
 
     const {
-        reset,
     } = useForm<FormValues>({
         mode: 'onSubmit',
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -62,16 +61,17 @@ const Register: React.FC = () => {
                 ReferralSource: data.ReferralSource,
                 Note: data.Note,
             });
-            reset();
+            // reset();
             // Serialize the data into a query parameter
             sessionStorage.setItem(REGISTER_RESPONSE_SESSION, JSON.stringify(res));
-
+            setInputError('');
             // Navigate using window.location.assign
             window.location.assign(`/payment`);
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-            toast.error(error.message);
+            // toast.error(error.message);
+            setInputError(error.message);
         } finally {
             setIsLoading(false);
         }
@@ -92,7 +92,7 @@ const Register: React.FC = () => {
                         <h3 className='font-svnDay text-2xl lg:text-3xl text-ua-blue'>
                             Thông tin đăng ký{' '}
                         </h3>
-                        <RegistrationForm onSubmit={onSubmit} />
+                        <RegistrationForm onSubmit={onSubmit} error={inputError} />
                     </div>
                 </div>
             </Section>

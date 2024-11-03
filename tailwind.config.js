@@ -34,6 +34,7 @@ module.exports = {
         feldgrau: '#4E5A5F',
         manatee: '#9A9EAC',
         'ua-blue': '#0029BF',
+        'international-klein-blue': '#002AA9',
       },
       fontFamily: {
         poppins: ['SVN-Poppins', 'sans-serif'],

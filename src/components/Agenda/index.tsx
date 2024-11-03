@@ -11,21 +11,21 @@ interface AgendaItems {
 
 const timelineItems = [
     {
-        date: '01/11/2024',
+        date: '05/11/2024',
         description: 'Mở cổng đăng kí cho vận động viên',
     },
     { date: '05/12/2024', description: 'Đóng cổng đăng kí tham gia thi đấu' },
     {
-        date: '06/12/2024',
+        date: '09/12/2024',
         description: 'Tổ trọng tài bốc thăm và chia nhóm thi đấu',
     },
     {
-        date: '09/12/2024 - 14/12/2024',
+        date: '11/12/2024 - 17/12/2024',
         description: 'Khai mạc và giới thiệu giải đấu',
         additionalInfo: 'Thi đấu vòng bảng và vòng loại trực tiếp',
     },
     {
-        date: '15/12/2024',
+        date: '17/12/2024',
         description: 'Chung kết và trao giải',
         additionalInfo: 'Lễ bế mạc',
     },

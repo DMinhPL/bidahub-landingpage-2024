@@ -21,6 +21,7 @@ const Payment = () => {
     const [openEdit, setOpenEdit] = useState(false);
     const submitListener = useRef(0);
     const token = useAuthToken();
+    const [inputError, setInputError] = useState('');
 
     const getQrCode = async (data: RegisterResponseType, token: string) => {
         try {
@@ -96,8 +97,11 @@ const Payment = () => {
             sessionStorage.setItem(REGISTER_RESPONSE_SESSION, JSON.stringify(res));
             setOpenEdit(false);
             submitListener.current += 1;
-        } catch {
-            toast.error("Something was wrong, Please try again!");
+            setInputError('');
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
+            setInputError(error.message);
+            // toast.error("Something was wrong, Please try again!");
         } finally {
             setIsLoading(false);
         }
@@ -235,7 +239,7 @@ const Payment = () => {
                 </div>
             </div>
 
-            <EditPopup open={openEdit} setOpen={setOpenEdit} onSubmit={submitUpdate} isLoading={isLoading} />
+            <EditPopup open={openEdit} setOpen={setOpenEdit} onSubmit={submitUpdate} isLoading={isLoading} error={inputError} />
         </div>
     );
 };

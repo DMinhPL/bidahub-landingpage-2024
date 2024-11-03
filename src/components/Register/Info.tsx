@@ -6,6 +6,15 @@ const Info: React.FC = () => {
             <h3 className='font-svnDay text-2xl lg:text-3xl text-ua-blue'>
                 Thông tin về giải đấu
             </h3>
+            <p className='text-lg mt-4'>
+                Giải Billiards Carom 3C Molinari Mở Rộng TP Hồ Chí Minh 2024
+            </p>
+            <p className='text-lg'>
+                Địa điểm tổ chức: Nhà thi đấu rạch miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh
+            </p>
+            <p className='text-lg'>
+                Thời gian: 09/12/2024 - 15/12/2024
+            </p>
             <ul className='mt-4 list-disc pl-6'>
                 <li className='text-raisin-black'>
                     Lệ phí thi đấu:{' '}
