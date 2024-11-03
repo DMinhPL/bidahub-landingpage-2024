@@ -27,9 +27,10 @@ type RegistrationFormProps = {
   isEdit?: boolean;
   isLoading?: boolean;
   error?: string;
+  lang?: string;
 };
 
-const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, isEdit, isLoading }) => {
+const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, isEdit, isLoading, lang }) => {
   const [isDateFocused, setIsDateFocused] = useState(false);
 
   const {
@@ -94,13 +95,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                   className='font-semibold mb-2 block'
                   htmlFor='FullName'
                 >
-                  Họ và tên <span className='text-neon-fuchsia'>*</span>
+                  {lang === 'en' ? 'Full Name' : 'Họ và tên'} <span className='text-neon-fuchsia'>*</span>
                 </label>
                 <Input
                   {...field}
                   id='FullName'
                   name='FullName'
-                  placeholder='Nhập đầy đủ họ và tên'
+                  placeholder={lang === 'en' ? 'Enter full name' : 'Nhập đầy đủ họ và tên'}
                   error={errors.FullName?.message}
                 />
               </div>
@@ -117,11 +118,11 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                       className='font-semibold mb-2 block'
                       htmlFor='Gender'
                     >
-                      Giới tính
+                      {lang === 'en' ? 'Gender' : 'Giới tính'}
                     </label>
                     <div className='flex gap-4 items-center'>
                       <Radio
-                        label='Nam'
+                       label={lang === 'en' ? 'Male' : 'Nam'}
                         id='male'
                         name='Gender'
                         value='male'
@@ -129,7 +130,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                         onChange={(e) => field.onChange(e.target.value)}
                       />
                       <Radio
-                        label='Nữ'
+                        label={lang === 'en' ? 'Female' : 'Nữ'}
                         id='female'
                         name='Gender'
                         value='female'
@@ -151,13 +152,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                   className='font-semibold mb-2 block'
                   htmlFor='CCCD'
                 >
-                  CCCD <span className='text-neon-fuchsia'>*</span>
+                  {lang === 'en' ? 'Identification Number' : 'CCCD'} <span className='text-neon-fuchsia'>*</span>
                 </label>
                 <Input
                   {...field}
                   id='CCCD'
                   name='CCCD'
-                  placeholder='Nhập CCCD của bạn'
+                  placeholder={lang === 'en' ? 'Enter your ID number' : 'Nhập CCCD của bạn'}
                   error={errors.CCCD?.message}
                 />
               </div>
@@ -172,17 +173,17 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                   className='font-semibold mb-2 block'
                   htmlFor='Phone'
                 >
-                  Số điện thoại{' '}
+                   {lang === 'en' ? 'Phone Number ' : 'Số điện thoại '}
                   <span className='text-neon-fuchsia'>*</span>{' '}
                   <span className='font-normal capitalize text-md'>
-                    (Số Điện Thoại Đã được đăng ký zalo)
+                  ({lang === 'en' ? 'Registered on Zalo' : 'Số Điện Thoại Đã được đăng ký zalo'})
                   </span>
                 </label>
                 <Input
                   {...field}
                   id='Phone'
                   name='Phone'
-                  placeholder='Nhập số điện thoại'
+                  placeholder={lang === 'en' ? 'Enter phone number' : 'Nhập số điện thoại'}
                   error={error || errors.Phone?.message}
                 />
               </div>
@@ -197,7 +198,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                   className='font-semibold mb-2 block'
                   htmlFor='DateOfBirth'
                 >
-                  Ngày - tháng - năm sinh{' '}
+                  {lang === 'en' ? 'Date of Birth' : 'Ngày - tháng - năm sinh'}
+                  {' '}
                   <span className='text-neon-fuchsia'>*</span>
                 </label>
                 <div className="relative">
@@ -206,7 +208,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                       className='absolute top-1/2 left-3 transform -translate-y-1/2 text-roman-silver'
                       onClick={() => document.getElementById('DateOfBirth')?.focus()}
                     >
-                      Chọn ngày tháng năm sinh
+                      {lang === 'en' ? 'Select date of birth' : 'Chọn ngày tháng năm sinh'}
                     </span>
                   )}
 
@@ -215,7 +217,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                     id='DateOfBirth'
                     type='date'
                     name='DateOfBirth'
-                    placeholder='Chọn ngày tháng năm sinh'
+                    placeholder={lang === 'en' ? 'Select date of birth' : 'Chọn ngày tháng năm sinh'}
                     onFocus={() => setIsDateFocused(true)}
                     onBlur={() => setIsDateFocused(false)}
                     error={errors.DateOfBirth?.message}
@@ -240,7 +242,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                   type='email'
                   id='Email'
                   name='Email'
-                  placeholder='Nhập địa chỉ email'
+                  placeholder={lang === 'en' ? 'Enter your email address' : 'Nhập địa chỉ email'}
                   error={errors.Email?.message}
                 />
               </div>
@@ -255,13 +257,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                   className='font-semibold mb-2 block'
                   htmlFor='Address'
                 >
-                  Địa chỉ <span className='text-neon-fuchsia'>*</span>
+                  {lang === 'en' ? 'Address' : 'Địa chỉ'} <span className='text-neon-fuchsia'>*</span>
                 </label>
                 <Input
                   {...field}
                   id='Address'
                   name='Address'
-                  placeholder='Nhập địa chỉ của bạn'
+                  placeholder={lang === 'en' ? 'Enter your address' : 'Nhập địa chỉ của bạn'}
                   error={errors.Address?.message}
                 />
               </div>
@@ -278,11 +280,11 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                     className='font-semibold mb-2 block'
                     htmlFor='ReferralSource'
                   >
-                    Bạn biết đến giải đấu từ đâu
+                   {lang === 'en' ? 'How did you hear about the tournament?' : 'Bạn biết đến giải đấu từ đâu'}
                   </label>
                   <Pulldown
                     {...field}
-                    placeholder='Vui lòng chọn'
+                    placeholder={lang === 'en' ? 'Please select' : 'Vui lòng chọn'}
                     options={[
                       { label: 'Facebook', value: 'Facebook' },
                       { label: 'Bạn bè', value: 'Friend' },
@@ -303,25 +305,25 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                     className='font-semibold mb-2 block'
                     htmlFor='Gender'
                   >
-                    Giới tính
+                    {lang === 'en' ? 'Gender' : 'Giới tính'}
                   </label>
                   <div className='flex gap-4 items-center'>
-                    <Radio
-                      label='Nam'
-                      id='male'
-                      name='Gender'
-                      value='male'
-                      checked={field.value === 'male'}
-                      onChange={(e) => field.onChange(e.target.value)}
-                    />
-                    <Radio
-                      label='Nữ'
-                      id='female'
-                      name='Gender'
-                      value='female'
-                      checked={field.value === 'female'}
-                      onChange={(e) => field.onChange(e.target.value)}
-                    />
+                  <Radio
+                    label={lang === 'en' ? 'Male' : 'Nam'}
+                    id='male'
+                    name='Gender'
+                    value='male'
+                    checked={field.value === 'male'}
+                    onChange={(e) => field.onChange(e.target.value)}
+                  />
+                  <Radio
+                    label={lang === 'en' ? 'Female' : 'Nữ'}
+                    id='female'
+                    name='Gender'
+                    value='female'
+                    checked={field.value === 'female'}
+                    onChange={(e) => field.onChange(e.target.value)}
+                  />
                   </div>
                 </div>
               )}
@@ -336,14 +338,15 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                   className='font-semibold mb-2 block'
                   htmlFor='Club'
                 >
-                  Thông tin câu lạc bộ hoặc đội tuyển{' '}
-                  <span className='font-normal'>(Nếu có)</span>
+                  {lang === 'en' ? 'Club or Team Info' : 'Thông tin câu lạc bộ hoặc đội tuyển'}{' '}
+                  {' '}
+                  <span className='font-normal'>{lang === 'en' ? '(If any)' : '(Nếu có)'}</span>
                 </label>
                 <Input
                   {...field}
                   id='Club'
                   name='Club'
-                  placeholder='Nhập thông tin CLB hoặc đổi tuyển'
+                  placeholder={lang === 'en' ? 'Enter club or team information' : 'Nhập thông tin CLB hoặc đổi tuyển'}
                 />
               </div>
             )}
@@ -352,10 +355,10 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
         {
           !isEdit &&
           <p className='font-medium mt-6 italic text-md md:text-base'>
-            <span className='text-neon-fuchsia'>Lưu ý:</span> Chúng tôi sẽ
-            gửi thông tin giải đấu, mã số thi đấu và giải thưởng qua{' '}
-            <strong>Zalo</strong>. VĐV vui lòng cung cấp số điện thoại đã
-            đăng ký Zalo để nhận thông tin từ ban tổ chức.
+            <span className='text-neon-fuchsia'>{lang === 'en' ? 'Note: ' : 'Lưu ý: '}</span>
+            <span className='ml-[2px]' dangerouslySetInnerHTML={{ __html: lang === 'en'
+            ? `We will send tournament details, athlete codes, and prizes through <strong>Zalo</strong>. Please provide a Zalo-registered phone number to receive information from the organizers.`
+            : `Chúng tôi sẽ gửi thông tin giải đấu, mã số thi đấu và giải thưởng qua <strong>Zalo</strong>. VĐV vui lòng cung cấp số điện thoại đã đăng ký Zalo để nhận thông tin từ ban tổ chức.` }} />
           </p>
         }
       </div>
@@ -363,7 +366,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
         {
           !isEdit ?
             <button type='submit' className='h-[60px] rounded-lg bg-neon-fuchsia border border-neon-fuchsia text-white capitalize text-lg p-[18px] min-w-[240px] base-transition hover:text-neon-fuchsia hover:bg-white flex justify-center items-center'>
-              Đăng Ký
+              {lang === 'en' ? 'Register' : 'Đăng Ký'}
             </button>
             : <button
               type='submit'
@@ -393,7 +396,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit, error, is
                   ></path>
                 </svg>
               ) : null}
-              {isLoading ? 'Đang lưu...' : 'Lưu thay đổi'}
+              {isLoading ? (lang === 'en' ? 'Saving...' : 'Đang lưu...') : (lang === 'en' ? 'Save changes' : 'Lưu thay đổi')}
             </button>
         }
       </div>

@@ -47,20 +47,20 @@ const Payment = () => {
 
     useEffect(() => {
         const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
-        if (!sessionData) return router.push('/');
+        if (!sessionData) return router.push('/en');
         const data = JSON.parse(sessionData || '{}');
         if (data.FullName && data.CCCD && data.Phone && data.DateOfBirth && data.Address) {
             setRegistrationData(data);
         } else {
             // Redirect back if no data found
-            router.push('/');
+            router.push('/en');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router, submitListener.current, token]);
 
     useEffect(() => {
         const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
-        if (!sessionData) return router.push('/');
+        // if (!sessionData) return router.push('/en');
         const data = JSON.parse(sessionData || '{}');
         if (data.FullName && data.CCCD && data.Phone && data.DateOfBirth && data.Address) {
             getQrCode(data, token ?? '');
@@ -219,7 +219,7 @@ const Payment = () => {
                 </div>
             </div>
     
-            <EditPopup open={openEdit} setOpen={setOpenEdit} onSubmit={submitUpdate} isLoading={isLoading} />
+            <EditPopup lang='en' open={openEdit} setOpen={setOpenEdit} onSubmit={submitUpdate} isLoading={isLoading} />
         </div>
     );
     

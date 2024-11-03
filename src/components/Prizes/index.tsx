@@ -75,7 +75,7 @@ const Prizes: React.FC<{
         // },
     ], [lang]);
     return (
-        <Section title='Giải thưởng' className='awards scrollToSection' id='awards'>
+        <Section title={lang === 'en' ? 'Prizes' : 'Giải thưởng'} className='awards scrollToSection' id='awards'>
             <div className='panel font-svnDay text-2xl lg:text-[36px] bg-inchworm text-raisin-black rounded-3xl lg:p-6 py-6 px-4 text-center w-full'>
             {lang === 'en' ? 'Total Prize up to ' : 'Tổng giá trị giải thưởng lên đến '}
             <span className='text-neon-fuchsia'>{lang === 'en' ? '1.4 Billion VND' : '1,4 tỷ đồng'}</span>
