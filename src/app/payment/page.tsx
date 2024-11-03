@@ -201,16 +201,16 @@ const Payment = () => {
                                 </div>
                                 <ul className='text-feldgrau mt-2'>
                                     <li>
-                                        <p>{registrationData?.VietQRInfo?.bankName}</p>
+                                        <p>Ngân hàng Quân đội (MB Bank)</p>
                                     </li>
                                     <li>
-                                        <p>Số tài khoản: {registrationData?.VietQRInfo?.bankAccount}</p>
+                                        <p>Số tài khoản: 8434899888</p>
                                     </li>
                                     <li>
-                                        <p>Chủ tài khoản: {registrationData?.VietQRInfo?.userBankName}</p>
+                                        <p>Chủ tài khoản: VINABIDA CO LTD</p>
                                     </li>
                                     <li>
-                                        <p>Nội dung thanh toán: {registrationData?.VietQRInfo?.content} </p>
+                                        <p>Nội dung thanh toán: Số điện thoại đã đăng ký thi đấu </p>
                                         <p className='italic'>(Ví dụ: Tuan 0979437225 moli24)</p>
                                     </li>
                                 </ul>

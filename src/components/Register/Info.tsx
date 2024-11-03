@@ -35,8 +35,13 @@ const Info: React.FC<{
                 </ul>
                 <p className='text-lg font-semibold mt-4'>
                     {lang === 'en'
-                        ? 'Each round will follow a knockout format with random draws (the draw is scheduled for December 9, 2024). Tournament information will be posted on the official Molinari HCMC 2024 Facebook page'
-                        : 'Đấu theo từng vòng loại, bốc thăm ngẫu nhiên (Bốc thăm thi đấu dự kiến vào ngày 09/12/2024 - Thông tin trận đấu sẽ được đăng trên '} <a href="https://www.facebook.com/profile.php?id=61567087604562&mibextid=LQQJ4d" className='font-semibold text-ua-blue' target="_blank">Facebook Molinari HCMC 2024</a>
+                        ? 'Each round will follow a knockout format with random draws (the draw is scheduled for December 9, 2024). Tournament information will be posted on the official '
+                        : 'Đấu theo từng vòng loại, bốc thăm ngẫu nhiên (Bốc thăm thi đấu dự kiến vào ngày 09/12/2024 - Thông tin trận đấu sẽ được đăng trên '}
+                    {lang === 'en' && <>
+                        <a href="https://www.facebook.com/profile.php?id=61567087604562&mibextid=LQQJ4d" className='font-semibold text-ua-blue' target="_blank">Molinari HCMC 2024 </a>
+                        Facebook page.
+                    </>}
+                    {lang !== 'en' && <a href="https://www.facebook.com/profile.php?id=61567087604562&mibextid=LQQJ4d" className='font-semibold text-ua-blue' target="_blank">Facebook Molinari HCMC 2024.</a>}
                 </p>
                 {/* ====== */}
                 <p className='font-medium mt-4'>{lang === 'en' ? 'Scoring System' : 'Cách tính điểm'}</p>
