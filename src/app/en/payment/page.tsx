@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import { updateRegisterInfoService } from '@/api/register';
 import { GenerateQrResponseType, QrCodeParams, RegisterResponseType } from '@/api/type';
 import { generateQrCodeService } from '@/api/vietqr';
 import EditPopup from '@/components/EditPopup';
 import { FormValues } from '@/components/RegistrationForm';
-import useAuthToken from '@/hooks/useAuthToken';
 import { REGISTER_RESPONSE_SESSION } from '@/utils/constants';
 import { formatDateToDDMMYYYY } from '@/utils/functions';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import QRCode from "react-qr-code";
 import { toast } from 'react-toastify';
+
 
 const Payment = () => {
     const router = useRouter();
@@ -19,8 +20,9 @@ const Payment = () => {
     const [qrResponseData, setQrResponseData] = useState<GenerateQrResponseType>();
     const [openEdit, setOpenEdit] = useState(false);
     const submitListener = useRef(0);
-    const token = useAuthToken();
-    
+    // const token = useAuthToken();
+    const [inputError, setInputError] = useState('');
+
     const getQrCode = async (data: RegisterResponseType, token: string) => {
         try {
             const params: QrCodeParams = {
@@ -33,7 +35,7 @@ const Payment = () => {
                 orderId: data.VietQRInfo.orderId,
                 transType: "C",
                 sign: "Molinari",
-                urlLink: `${process.env.NEXT_HOST_URL}/en/success`
+                urlLink: `${process.env.NEXT_HOST_URL}/success`
             }
             if (token) {
                 const data = await generateQrCodeService(params, token);
@@ -47,29 +49,30 @@ const Payment = () => {
 
     useEffect(() => {
         const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
-        if (!sessionData) return router.push('/en');
-        const data = JSON.parse(sessionData || '{}');
+        if (!sessionData) return router.push('/');
+        const data = JSON.parse(sessionData || '{}') as RegisterResponseType;
         if (data.FullName && data.CCCD && data.Phone && data.DateOfBirth && data.Address) {
             setRegistrationData(data);
+            // getQrCode(data, token ?? '');
         } else {
             // Redirect back if no data found
-            router.push('/en');
+            router.push('/');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router, submitListener.current, token]);
+    }, [router, submitListener.current]);
 
-    useEffect(() => {
-        const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
-        // if (!sessionData) return router.push('/en');
-        const data = JSON.parse(sessionData || '{}');
-        if (data.FullName && data.CCCD && data.Phone && data.DateOfBirth && data.Address) {
-            getQrCode(data, token ?? '');
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router, token]);
+    // useEffect(() => {
+    //     const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
+    //     if (!sessionData) return router.push('/');
+    //     const data = JSON.parse(sessionData || '{}');
+    //     if (data.FullName && data.CCCD && data.Phone && data.DateOfBirth && data.Address) {
+    //         getQrCode(data, token ?? '');
+    //     }
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [router, token]);
 
     const onPayment = () => {
-        router.push('/en/success');
+        router.push('/success');
     }
 
     const submitUpdate = async (data: FormValues) => {
@@ -95,8 +98,11 @@ const Payment = () => {
             sessionStorage.setItem(REGISTER_RESPONSE_SESSION, JSON.stringify(res));
             setOpenEdit(false);
             submitListener.current += 1;
-        } catch {
-            toast.error("Something was wrong, Please try again!");
+            setInputError('');
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
+            setInputError(error.message);
+            // toast.error("Something was wrong, Please try again!");
         } finally {
             setIsLoading(false);
         }
@@ -165,11 +171,11 @@ const Payment = () => {
                             <div className='min-w-[282px] flex justify-center items-center'>
                                 <div className="max-w-[218px] mx-auto">
                                     {
-                                        qrResponseData?.qrCode &&
+                                        registrationData?.VietQRInfo.qrCode &&
                                         <QRCode
                                             size={218}
                                             style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                                            value={qrResponseData?.qrCode}
+                                            value={registrationData?.VietQRInfo.qrCode}
                                             viewBox={`0 0 218 218`}
                                         />
                                     }
@@ -189,16 +195,16 @@ const Payment = () => {
                                 </div>
                                 <ul className='text-feldgrau mt-2'>
                                     <li>
-                                        <p>{qrResponseData?.bankName}</p>
+                                        <p>{registrationData?.VietQRInfo?.bankName}</p>
                                     </li>
                                     <li>
-                                        <p>Account Number: {qrResponseData?.bankAccount}</p>
+                                        <p>Số tài khoản: {registrationData?.VietQRInfo?.bankAccount}</p>
                                     </li>
                                     <li>
-                                        <p>Account Holder: {qrResponseData?.userBankName}</p>
+                                        <p>Chủ tài khoản: {registrationData?.VietQRInfo?.userBankName}</p>
                                     </li>
                                     <li>
-                                        <p>Payment Description: {qrResponseData?.content}</p>
+                                        <p>Nội dung thanh toán: {registrationData?.VietQRInfo?.content} </p>
                                         <p className='italic'>(Example: Tuan 0979437225 moli24)</p>
                                     </li>
                                 </ul>
@@ -218,11 +224,11 @@ const Payment = () => {
                     </button>
                 </div>
             </div>
-    
-            <EditPopup lang='en' open={openEdit} setOpen={setOpenEdit} onSubmit={submitUpdate} isLoading={isLoading} />
+
+            <EditPopup lang='en' open={openEdit} setOpen={setOpenEdit} onSubmit={submitUpdate} isLoading={isLoading} error={inputError} />
         </div>
     );
-    
+
 };
 
 export default Payment;

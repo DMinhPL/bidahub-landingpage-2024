@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import { updateRegisterInfoService } from '@/api/register';
 import { GenerateQrResponseType, QrCodeParams, RegisterResponseType } from '@/api/type';
 import { generateQrCodeService } from '@/api/vietqr';
 import EditPopup from '@/components/EditPopup';
 import { FormValues } from '@/components/RegistrationForm';
-import useAuthToken from '@/hooks/useAuthToken';
 import { REGISTER_RESPONSE_SESSION } from '@/utils/constants';
 import { formatDateToDDMMYYYY } from '@/utils/functions';
 import { useRouter } from 'next/navigation';
