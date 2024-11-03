@@ -60,30 +60,31 @@ interface SliderProps {
 const CustomSlider: React.FC<SliderProps> = ({ slides }) => {
     const settings: Settings = {
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        centerPadding: '8%',
-        autoplay: true,
+        autoplay: false,
         pauseOnHover: false,
         pauseOnFocus: false,
-        arrows: true, // Enable custom arrows
+        arrows: false, // Enable custom arrows
         prevArrow: <PrevArrow />, // Custom prev arrow
         nextArrow: <NextArrow />, // Custom next arrow
-        centerMode: true,
         responsive: [
             {
                 breakpoint: 1199,
                 settings: {
                     slidesToShow: 2,
+                    arrows: true,
+                    infinite: true,
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
-                    centerPadding: '7%'
+                    arrows: true,
+                    infinite: true
                 }
             },
         ]

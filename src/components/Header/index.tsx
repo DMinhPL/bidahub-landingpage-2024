@@ -135,7 +135,7 @@ const Header: React.FC = () => {
           </nav>
           {/* Language  */}
           <div className='flex items-center gap-2 2xl:gap-6'>
-            <p className='text-international-klein-blue hidden md:block'>Hotline: <a className='text-ua-blue font-semibold' href="tel:0949969969">0949 969 969</a></p>
+            <p className='text-international-klein-blue hidden md:block'>Hotline: <a className='text-ua-blue font-semibold' href="tel:0949696696">0949 696 696</a></p>
             <div className="facebook ">
               <a href="https://www.facebook.com/molinari.carom3c.hcmc/" target="_blank">
                 <Image src={icFacebook.src} alt="Picture of the author" className='w-6 h-6 md:w-8 md:h-8' width={32} height={32} />

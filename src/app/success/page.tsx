@@ -17,17 +17,19 @@ const Success: React.FC = () => {
                 <h2 className='text-ua-blue text-2xl lg:text-3xl font-svnDay text-center'>
                     Đăng ký thành công
                 </h2>
-                <p className='text-gunmetal text-lg font-medium text-center mt-4'>
-                    Chúc mừng! Bạn đã đăng ký thành công.
-                </p>
                 <div className='panel rounded-xl bg-alice-blue p-4 mt-4'>
                     <p className='text-gunmetal'>
-                        Chúng tôi đã nhận được thông tin đăng ký của bạn. Xác nhận chi tiết sẽ được gửi qua Zalo.
-                        <p>Hãy kiểm tra tin nhắn Zalo để biết thêm thông tin.</p>
-                        <p> Chúng tôi rất mong được gặp bạn tại giải!</p>
+                        Chúng tôi đã nhận được thông tin đăng ký của bạn và đang trong quá trình xác nhận thanh toán.
+                        <p>Chúng tôi sẽ sớm gửi thông tin chi tiết qua tin nhắn Zalo hoặc email của bạn khi quá trình thanh toán hoàn tất (trong vòng 1 đến 2 ngày làm việc kể từ ngày nhận được thanh toán - không bao gồm Thứ 7, chủ nhật và ngày lễ).</p>
                     </p>
                     <p className='text-gunmetal mt-4'>
-                        Mọi thắc mắc và thông tin thêm và giải đấu, vui lòng liên hệ với chung tôi qua Hotline: <a className='font-medium text-brilliant-azure' href="tel:0949696696">0949.696.696</a> hoặc Email: <a href="mailto:molinari@bidahub.com" className='text-brilliant-azure font-medium'>molinari@bidahub.com</a> để được hỗ trợ!
+                        Để cập nhật thông tin giải đấu xin vui lòng theo dõi facebook <a className='text-brilliant-azure font-semibold' href="https://www.facebook.com/molinari.carom3c.hcmc/" target='_blank'>Molinari HCMC 2024.</a>
+                    </p>
+                    <p className='text-gunmetal mt-4'>
+                        Cảm ơn bạn đã đăng ký! Chúc bạn có một trải nghiệm tuyệt vời cùng chúng tôi.
+                    </p>
+                    <p className='text-gunmetal mt-4'>
+                        Mọi thắc mắc xin vui lòng liên hệ với chung tôi qua Hotline: <a className='font-medium text-brilliant-azure' href="tel:0949696696">0949.696.696</a> hoặc Email: <a href="mailto:molinari@bidahub.com" className='text-brilliant-azure font-medium'>molinari@bidahub.com</a> để được hỗ trợ!
                     </p>
                 </div>
                 <div className='back flex justify-center'>

@@ -95,12 +95,14 @@ const Register: React.FC<{
                 >
                     <div className='bg-white rounded-3xl p-4 lg:p-8 text-raisin-black max-w-[1128px] mx-auto'>
                         <Info lang={lang} />
-                        <div className='register-form pt-6'>
-                            <h3 className='font-svnDay text-2xl lg:text-3xl text-ua-blue'>
-                                {lang === 'en' ? 'Tournament Information ' : 'Thông tin đăng ký '}
-                            </h3>
-                            <RegistrationForm lang={lang} onSubmit={onSubmit} error={inputError} />
-                        </div>
+                        {
+                            lang !== 'en' && <div className='register-form pt-6'>
+                                <h3 className='font-svnDay text-2xl lg:text-3xl text-ua-blue'>
+                                    {lang === 'en' ? 'Tournament Information ' : 'Thông tin đăng ký '}
+                                </h3>
+                                <RegistrationForm lang={lang} onSubmit={onSubmit} error={inputError} />
+                            </div>
+                        }
                     </div>
                 </Section>
             </>

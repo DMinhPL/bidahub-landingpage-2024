@@ -9,7 +9,7 @@ const Prizes: React.FC<{
         const data = useMemo(() => [
             {
                 title: lang === 'en' ? '1 First Prize' : '1 Giải Nhất',
-                totalPrize: '182',
+                totalPrize: '200',
                 currency: lang === 'en' ? 'Million VND' : 'Triệu đồng',
                 details: [
                     lang === 'en' ? 'Cash' : 'Tiền mặt',
@@ -20,7 +20,7 @@ const Prizes: React.FC<{
             },
             {
                 title: lang === 'en' ? '1 Second Prize' : '1 Giải Nhì',
-                totalPrize: '112',
+                totalPrize: '100',
                 currency: lang === 'en' ? 'Million VND' : 'Triệu đồng',
                 details: [
                     lang === 'en' ? 'Cash' : 'Tiền mặt',
@@ -31,7 +31,7 @@ const Prizes: React.FC<{
             },
             {
                 title: lang === 'en' ? '2 Third Prizes' : '2 Giải Ba',
-                totalPrize: '62',
+                totalPrize: '50',
                 currency: lang === 'en' ? 'Million VND' : 'Triệu đồng',
                 details: [
                     lang === 'en' ? 'Cash' : 'Tiền mặt',
@@ -77,7 +77,7 @@ const Prizes: React.FC<{
             <Section title={lang === 'en' ? 'Prizes' : 'Giải thưởng'} className='awards scrollToSection' id='awards'>
                 <div className='panel font-svnDay text-2xl lg:text-[36px] bg-inchworm text-raisin-black rounded-3xl lg:p-6 py-6 px-4 text-center w-full'>
                     {lang === 'en' ? 'Total Prize up to ' : 'Tổng giá trị giải thưởng lên đến '}
-                    <span className='text-neon-fuchsia'>{lang === 'en' ? '1.4 Billion VND' : '1,4 tỷ đồng'}</span>
+                    <span className='text-neon-fuchsia'>{lang === 'en' ? '1.3 Billion VND' : '1,3 tỷ đồng'}</span>
                 </div>
                 <div className='list flex flex-wrap mt-2'>
                     {data.map((item, i) => (
@@ -154,7 +154,7 @@ const Prizes: React.FC<{
             </div> */}
                 <div className='mt-4 italic text-md md:text-base'>
                     <p>
-                        {lang === 'en' ? '* All prizes above include VAT' : '* Tất cả các giải thưởng trên đã bao gồm thuế VAT)'}
+                        {lang === 'en' ? '* All prizes above include VAT' : '* Tất cả các giải thưởng trên đã bao gồm thuế VAT'}
                     </p>
                     {/* <p>
                     Mỗi 1 đơn vị điểm thưởng có giá trị hỗ trợ thanh toán tương đương 1
