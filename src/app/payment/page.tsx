@@ -20,7 +20,7 @@ const Payment = () => {
     const [qrResponseData, setQrResponseData] = useState<GenerateQrResponseType>();
     const [openEdit, setOpenEdit] = useState(false);
     const submitListener = useRef(0);
-    const token = useAuthToken();
+    // const token = useAuthToken();
     const [inputError, setInputError] = useState('');
 
     const getQrCode = async (data: RegisterResponseType, token: string) => {
@@ -50,25 +50,26 @@ const Payment = () => {
     useEffect(() => {
         const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
         if (!sessionData) return router.push('/');
-        const data = JSON.parse(sessionData || '{}');
+        const data = JSON.parse(sessionData || '{}') as RegisterResponseType;
         if (data.FullName && data.CCCD && data.Phone && data.DateOfBirth && data.Address) {
             setRegistrationData(data);
+            // getQrCode(data, token ?? '');
         } else {
             // Redirect back if no data found
             router.push('/');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router, submitListener.current, token]);
+    }, [router, submitListener.current]);
 
-    useEffect(() => {
-        const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
-        if (!sessionData) return router.push('/');
-        const data = JSON.parse(sessionData || '{}');
-        if (data.FullName && data.CCCD && data.Phone && data.DateOfBirth && data.Address) {
-            getQrCode(data, token ?? '');
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router, token]);
+    // useEffect(() => {
+    //     const sessionData = sessionStorage.getItem(REGISTER_RESPONSE_SESSION);
+    //     if (!sessionData) return router.push('/');
+    //     const data = JSON.parse(sessionData || '{}');
+    //     if (data.FullName && data.CCCD && data.Phone && data.DateOfBirth && data.Address) {
+    //         getQrCode(data, token ?? '');
+    //     }
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [router, token]);
 
     const onPayment = () => {
         router.push('/success');
@@ -173,11 +174,11 @@ const Payment = () => {
                             <div className='min-w-[282px] flex justify-center items-center'>
                                 <div className="max-w-[218px] mx-auto">
                                     {
-                                        qrResponseData?.qrCode &&
+                                        registrationData?.VietQRInfo.qrCode &&
                                         <QRCode
                                             size={218}
                                             style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                                            value={qrResponseData?.qrCode}
+                                            value={registrationData?.VietQRInfo.qrCode}
                                             viewBox={`0 0 218 218`}
                                         />
                                     }
@@ -200,16 +201,16 @@ const Payment = () => {
                                 </div>
                                 <ul className='text-feldgrau mt-2'>
                                     <li>
-                                        <p>{qrResponseData?.bankName}</p>
+                                        <p>{registrationData?.VietQRInfo?.bankName}</p>
                                     </li>
                                     <li>
-                                        <p>Số tài khoản: {qrResponseData?.bankAccount}</p>
+                                        <p>Số tài khoản: {registrationData?.VietQRInfo?.bankAccount}</p>
                                     </li>
                                     <li>
-                                        <p>Chủ tài khoản: {qrResponseData?.userBankName}</p>
+                                        <p>Chủ tài khoản: {registrationData?.VietQRInfo?.userBankName}</p>
                                     </li>
                                     <li>
-                                        <p>Nội dung thanh toán: {qrResponseData?.content} </p>
+                                        <p>Nội dung thanh toán: {registrationData?.VietQRInfo?.content} </p>
                                         <p className='italic'>(Ví dụ: Tuan 0979437225 moli24)</p>
                                     </li>
                                 </ul>

@@ -29,6 +29,7 @@ type VietQRInfoType = {
     serviceCode: string;
     orderId: string;
     additionalData: string[];
+
 };
 
 export interface RegisterResponseType {
@@ -48,6 +49,9 @@ export interface RegisterResponseType {
     UpdatedAt: string | null;
     PaidDateTime: string | null;
     VietQRInfo: VietQRInfoType;
+    PaymentStatus: boolean;
+    TransactionId: string | null;
+    Active: boolean;
 };
 
 export type ErrorResponse = {
