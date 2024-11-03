@@ -56,7 +56,6 @@ body {
   }
 }
 
-.slick-list{padding:0 20% 0 0 !important;}
 .slick-prev:before, .slick-next:before {
   display: none;
 }
@@ -69,4 +68,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .ReactModal__Overlay.ReactModal__Overlay--after-open {
   z-index: 50;
+}
+
+@media only screen and (min-width: 1200px) {
+  .slider .slick-track {
+    display: flex;
+    justify-content: center;
+  }
+  .slider .slick-track .slick-slide {
+   width: auto !important;
+   margin: 0 12px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .slick-list{padding:0 20% 0 0 !important;}
+
 }

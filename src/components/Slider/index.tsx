@@ -77,6 +77,8 @@ const CustomSlider: React.FC<SliderProps> = ({ slides }) => {
                     slidesToShow: 2,
                     arrows: true,
                     infinite: true,
+                    centerPadding: '8%',
+                    centerMode: true
                 }
             },
             {
@@ -84,7 +86,9 @@ const CustomSlider: React.FC<SliderProps> = ({ slides }) => {
                 settings: {
                     slidesToShow: 1,
                     arrows: true,
-                    infinite: true
+                    infinite: true,
+                    centerPadding: '8%',
+                    centerMode: true
                 }
             },
         ]
