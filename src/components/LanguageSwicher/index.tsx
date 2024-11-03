@@ -1,9 +1,14 @@
 'use client';
-import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
 interface Language {
   code: string;
   label: string;
+}
+
+type LanguageSwitcherProps = {
+  lang?: string
 }
 
 const languages: Language[] = [
@@ -12,12 +17,26 @@ const languages: Language[] = [
   // Add more languages as needed
 ];
 
-const LanguageSwitcher: React.FC = () => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
+  lang
+}) => {
+  const router = useRouter();
   const [selectedLanguage, setSelectedLanguage] = useState<string>('VN');
 
   const handleLanguageChange = (code: string) => {
     setSelectedLanguage(code);
+    if (code === 'EN') {
+      router.push('/en');
+    } else {
+      router.push('/');
+    }
   };
+
+  useEffect(() => {
+    if (lang) {
+      setSelectedLanguage(lang === 'en' ? 'EN' : 'VN');
+    }
+  }, [lang]);
 
   return (
     <div className="flex items-center space-x-4">

@@ -1,40 +1,45 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Section from '../Section';
 
-const Prizes: React.FC = () => {
-    const data = [
-        {
-            title: '1 Giải Nhất',
-            totalPrize: '200',
-            currency: 'Triệu đồng',
-            details: [
-                'Tiền mặt',
-                '1 Kuro CMI 5',
-                '1 Ngọn Lancia',
-                '1 Túi cơ Molinari 3x6 cứng',
-            ],
-        },
-        {
-            title: '1 Giải Nhì',
-            totalPrize: '100',
-            currency: 'Triệu đồng',
-            details: [
-                'Tiền mặt',
-                '1 Kuro CMI 4',
-                '1 Ngọn Lancia',
-                '1 Túi cơ Molinari 3x6 mềm',
-            ],
-        },
-        {
-            title: '2 Giải Ba',
-            totalPrize: '50',
-            currency: 'Triệu đồng',
-            details: [
-                'Tiền mặt',
-                '1 Kuro CMI 3',
-                '1 Túi cơ Molinari 2x4 cứng',
-            ],
-        },
+const Prizes: React.FC<{
+  lang?: string
+}> = ({
+  lang = ''
+}) => {
+    const data = useMemo(() => [
+      {
+        title: lang === 'en' ? '1 First Prize' : '1 Giải Nhất',
+        totalPrize: '182',
+        currency: lang === 'en' ? 'Million VND' : 'Triệu đồng',
+        details: [
+          lang === 'en' ? 'Cash' : 'Tiền mặt',
+          lang === 'en' ? '1 Kuro CMI 5 cue' : '1 Kuro CMI 5',
+          lang === 'en' ? '1 Lancia shaft' : '1 Ngọn Lancia',
+          lang === 'en' ? '1 Molinari 3x6 hard cue case' : '1 Túi cơ Molinari 3x6 cứng',
+        ],
+      },
+      {
+        title: lang === 'en' ? '1 Second Prize' : '1 Giải Nhì',
+        totalPrize: '112',
+        currency: lang === 'en' ? 'Million VND' : 'Triệu đồng',
+        details: [
+          lang === 'en' ? 'Cash' : 'Tiền mặt',
+          lang === 'en' ? '1 Kuro CMI 4 cue' : '1 Kuro CMI 4',
+          lang === 'en' ? '1 Lancia shaft' : '1 Ngọn Lancia',
+          lang === 'en' ? '1 Molinari 3x6 soft cue case' : '1 Túi cơ Molinari 3x6 mềm',
+        ],
+      },
+      {
+        title: lang === 'en' ? '2 Third Prizes' : '2 Giải Ba',
+        totalPrize: '62',
+        currency: lang === 'en' ? 'Million VND' : 'Triệu đồng',
+        details: [
+          lang === 'en' ? 'Cash' : 'Tiền mặt',
+          lang === 'en' ? '1 Kuro CMI 3 cue' : '1 Kuro CMI 3',
+          lang === 'en' ? '1 hard cue case (2x4)' : '1 Túi cơ Molinari 2x4 cứng',
+          lang === 'en' ? 'Reward Points: 10,000,000 points (equivalent to 10 million VND)' : 'Điểm thưởng: 10.000.000 điểm (tương ứng với 10 triệu đồng)',
+        ],
+      },
         // {
         //     title: '4 Giải vòng loại 8',
         //     totalPrize: '45',
@@ -68,13 +73,12 @@ const Prizes: React.FC = () => {
         //     currency: 'Triệu đồng',
         //     details: ['Điểm thưởng: 5.200.000 điểm (tương ứng với 5,2 triệu)'],
         // },
-    ];
-
+    ], [lang]);
     return (
-        <Section title='Giải thưởng' className='awards scrollToSection' id='awards'>
+        <Section title={lang === 'en' ? 'Prizes' : 'Giải thưởng'} className='awards scrollToSection' id='awards'>
             <div className='panel font-svnDay text-2xl lg:text-[36px] bg-inchworm text-raisin-black rounded-3xl lg:p-6 py-6 px-4 text-center w-full'>
-                Tổng giá trị giải thưởng lên đến{' '}
-                <span className='text-neon-fuchsia'>1,4 tỷ đồng</span>
+            {lang === 'en' ? 'Total Prize up to ' : 'Tổng giá trị giải thưởng lên đến '}
+            <span className='text-neon-fuchsia'>{lang === 'en' ? '1.4 Billion VND' : '1,4 tỷ đồng'}</span>
             </div>
             <div className='list flex flex-wrap mt-2'>
                 {data.map((item, i) => (
@@ -95,7 +99,7 @@ const Prizes: React.FC = () => {
                                 </h3>
                                 <div className='flex gap-6 items-center mt-6 justify-center'>
                                     <p className='text-lg w-[82px] text-right'>
-                                        Tổng giải thưởng lên đến
+                                    {lang === 'en' ? 'Each prize valued at' : 'Tổng giải thưởng lên đến'}
                                     </p>
                                     <div className='total text-2xl text-inchworm font-svnDay -mt-2'>
                                         <p className='text-[64px] leading-[70px]'>
@@ -106,7 +110,7 @@ const Prizes: React.FC = () => {
                                 </div>
                             </div>
                             <div className='mt-6'>
-                                <p className='text-xl md:text-2xl font-svnDay'>Bao gồm:</p>
+                                <p className='text-xl md:text-2xl font-svnDay'>{lang === 'en' ? 'Includes:' : 'Bao gồm:'}</p>
                                 <ul className='mt-6 pl-6 list-disc'>
                                     {item.details.map((detail, index) => (
                                         <li className='leading-[2]' key={index}>
@@ -120,7 +124,7 @@ const Prizes: React.FC = () => {
                 ))}
             </div>
             <div className='panel font-svnDay text-2xl lg:text-[36px] bg-inchworm text-raisin-black rounded-3xl lg:p-6 py-6 px-4 text-center w-full mt-2'>
-                Và nhiều giải phụ hấp dẫn khác
+              {lang === 'en' ? 'And many other attractive prizes' : 'Và nhiều giải phụ hấp dẫn khác'}
             </div>
             {/* 2 Giải seri cao nhất  */}
             {/* <div
@@ -151,7 +155,7 @@ const Prizes: React.FC = () => {
             </div> */}
             <div className='mt-4 italic text-md md:text-base'>
                 <p>
-                    * Tất cả các giải thưởng trên đã bao gồm thuế VAT
+                  {lang === 'en' ? '* All prizes above include VAT' : '* Tất cả các giải thưởng trên đã bao gồm thuế VAT)'}
                 </p>
                 {/* <p>
                     Mỗi 1 đơn vị điểm thưởng có giá trị hỗ trợ thanh toán tương đương 1

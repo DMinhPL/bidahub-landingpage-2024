@@ -8,6 +8,7 @@ import Image from 'next/image';
 interface TimeBoxProps {
     value: string;
     label: string;
+    lang?: string;
 }
 
 const TimeBox: React.FC<TimeBoxProps> = ({ value, label }) => {
@@ -26,7 +27,11 @@ const TimeBox: React.FC<TimeBoxProps> = ({ value, label }) => {
     );
 };
 
-const Countdown: React.FC = () => {
+const Countdown: React.FC<{
+    lang?: string
+}> = ({
+    lang = ''
+}) => {
     const REGISTER_NUMBER = 300;
     const calculateTimeLeft = () => {
         const targetDate = new Date('2024-12-09T08:00:00'); // Set your target date here
@@ -65,21 +70,21 @@ const Countdown: React.FC = () => {
     }, []);
 
     return (
-        <Section title='Đếm ngược sự kiện' className='countdown' id='countdown'>
+        <Section title={lang === 'en' ? 'Event countdown' : 'Đếm ngược sự kiện'} className='countdown' id='countdown'>
             <div className='countdown flex gap-2 md:gap-8 justify-center'>
-                <TimeBox value={timeLeft.days} label='Ngày' />
-                <TimeBox value={timeLeft.hours} label='Giờ' />
-                <TimeBox value={timeLeft.minutes} label='Phút' />
-                <TimeBox value={timeLeft.seconds} label='Giây' />
+                <TimeBox value={timeLeft.days} label={lang === 'en' ? 'Days' : 'Ngày'} />
+                <TimeBox value={timeLeft.hours} label={lang === 'en' ? 'Hours' : 'Giờ'} />
+                <TimeBox value={timeLeft.minutes} label={lang === 'en' ? 'Minutes' : 'Phút'} />
+                <TimeBox value={timeLeft.seconds} label={lang === 'en' ? 'Seconds' : 'Giây'} />
             </div>
             <div className="address text-center mt-10">
-                <p className='font-svnDay text-2xl'>Nhà thi đấu Rạch Miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh</p>
+                <p className='font-svnDay text-2xl'>{lang === 'en' ? 'Rach Mieu Sports Complex - 1 Hoa Phuong Street, Ward 2, Phu Nhuan District, Ho Chi Minh City' : 'Nhà thi đấu rạch miễu - 1 Hoa Phượng, Phường 2, Phú Nhuận, Hồ Chí Minh'}</p>
                 <p className='font-svnDay text-2xl mt-6'>11/12/2024 - 16/12/2024</p>
             </div>
             <div className="register-number max-w-[521px] mx-auto mt-10 relative">
                 <Image src={bgRegisterNumber} alt="bg register number" className='absolute top-0 left-0 w-full h-full z-[1]' />
                 <div className="relative z-[2] grid grid-cols-2 font-svnDay">
-                    <p className='text-blue-ryb text-lg lg:text-2xl max-w-[250px] px-4 py-5 lg:px-7 lg:py-4'>Số VĐV đã đăng ký tham gia giải đấu</p>
+                    <p className='text-blue-ryb text-lg lg:text-2xl max-w-[250px] px-4 py-5 lg:px-7 lg:py-4'>{lang === 'en' ? 'Number of Athletes Registered for the Tournament' : 'Số VĐV đã đăng ký tham gia giải đấu'}</p>
                     <p className='text-[56px] lg:text-[80px] -mt-2 lg:mt-0 text-center px-4 py-5 lg:px-7 lg:py-4'>{REGISTER_NUMBER}</p>
                 </div>
             </div>

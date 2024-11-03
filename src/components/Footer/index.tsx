@@ -1,30 +1,9 @@
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useMemo, useState } from 'react';
 import footerImg from '../../assets/images/logo-footer.png';
 
-const menus = [
-    {
-        title: 'Giới thiệu',
-        target: '#introduction',
-        id: 2,
-    },
-    {
-        title: 'Lịch trình sự kiện',
-        target: '#schedule',
-        id: 3,
-    },
-    {
-        title: 'Giải thưởng',
-        target: '#awards',
-        id: 4,
-    },
-    {
-        title: 'Thể thức thi đấu & Đăng ký',
-        target: '#register',
-        id: 5,
-    },
-];
 
 const handleScrollToSection = (target: string) => {
     if (target === '#home') {
@@ -47,7 +26,32 @@ const handleScrollToSection = (target: string) => {
 };
 
 const Footer: React.FC = () => {
+    const pathname = usePathname();
+    const lang = pathname.split('/')[1];
     const [activeSection, setActiveSection] = useState<string | null>('home');
+
+    const menus = useMemo(() => [
+        {
+            title: lang === 'en' ? 'About us' : 'Giới thiệu',
+            target: '#introduction',
+            id: 2,
+        },
+        {
+            title: lang === 'en' ? 'Event' : 'Lịch trình sự kiện',
+            target: '#schedule',
+            id: 3,
+        },
+        {
+            title: lang === 'en' ? 'Prizes' : 'Giải thưởng',
+            target: '#awards',
+            id: 4,
+        },
+        {
+            title: lang === 'en' ? 'Registration' : 'Thể thức thi đấu & Đăng ký',
+            target: '#register',
+            id: 5,
+        },
+    ], [lang]);
 
     useEffect(() => {
         const sections = document.querySelectorAll('section');
@@ -115,12 +119,12 @@ const Footer: React.FC = () => {
                             <a className='text-white font-normal block mt-4 underline' href="mailto:molinari2024@bidahub.com">molinari2024@bidahub.com</a>
                         </div>
                         <div className='mt-8'>
-                            <p className='text-md text-white font-normal opacity-50'>Số điện thoại</p>
+                            <p className='text-md text-white font-normal opacity-50'>{lang === 'en' ? 'Phone' : 'Số điện thoại'}</p>
                             <a className='text-white font-normal block mt-4' href="tel:+84348999888">+84.348.999.888</a>
                         </div>
                     </div>
                     <div className="left mt-8 md:mt-0">
-                        <p className='text-md text-white font-normal opacity-50'>Mạng xã hội</p>
+                        <p className='text-md text-white font-normal opacity-50'>{lang === 'en' ? 'Social' : 'Mạng xã hội'}</p>
                         <div className="flex justify-between min-w-[289px]">
                             <a className='text-white font-normal block mt-4' href="https://www.facebook.com/profile.php?id=61567087604562&mibextid=LQQJ4d">Facebook</a>
                             <a className='text-white font-normal block mt-4' href="/">Instagram</a>
